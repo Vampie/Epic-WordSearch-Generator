@@ -66,7 +66,14 @@ def render_wordsearch_pdf(
     # cell_margin = 12  # 0.2 inch margin for table cells
 
     # --- Puzzle PDF ---
-    doc = SimpleDocTemplate(puzzle_output, pagesize=A4)
+    doc = SimpleDocTemplate(
+        puzzle_output,
+        pagesize=A4,
+        leftMargin=page_margin,
+        rightMargin=page_margin,
+        topMargin=page_margin,
+        bottomMargin=page_margin,
+    )
     elements = []
     # Title in uppercase and centered
     elements.append(Paragraph(title.upper(), styles["Title"]))
@@ -278,7 +285,14 @@ def render_wordsearch_pdf(
             solution_dir = os.path.dirname(solution_output)
             if solution_dir:
                 os.makedirs(solution_dir, exist_ok=True)
-            doc_sol = SimpleDocTemplate(solution_output, pagesize=A4)
+            doc_sol = SimpleDocTemplate(
+                solution_output,
+                pagesize=A4,
+                leftMargin=page_margin,
+                rightMargin=page_margin,
+                topMargin=page_margin,
+                bottomMargin=page_margin,
+            )
             elements_sol.append(
                 Paragraph(f"{title.upper()} - Solution", small_title_style)
             )
