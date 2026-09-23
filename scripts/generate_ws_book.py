@@ -18,7 +18,7 @@ from wordsearch.book_builder import (
     assemble_book_pdf,
     generate_single_puzzle,
     output_filename,
-    reserve_output_suffix,
+    resolve_output_suffix,
 )
 
 if __name__ == "__main__":
@@ -33,6 +33,15 @@ if __name__ == "__main__":
         help="name of the output book (without extension)",
         default=None
     )
+    parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        help=(
+            "overwrite the final output files instead of adding a _1/_2/... "
+            "suffix, and remove any previously generated numbered versions"
+        ),
+    )
 
     args = parser.parse_args()
 
@@ -45,7 +54,7 @@ if __name__ == "__main__":
         puzzle_name = args.name
 
     output_dir = args.output
-    suffix = reserve_output_suffix(output_dir, puzzle_name, [("book", "pdf")])
+    suffix = resolve_output_suffix(output_dir, puzzle_name, [("book", "pdf")], force=args.force)
     args.output = os.path.join(output_dir, output_filename(puzzle_name, "book", "pdf", suffix))
 
     puzzles = []

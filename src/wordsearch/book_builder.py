@@ -53,6 +53,50 @@ def reserve_output_suffix(output_dir, base_name, outputs):
         suffix = 1 if suffix is None else suffix + 1
 
 
+def clear_output_variants(output_dir, base_name, outputs):
+    """
+    Removes any existing "<base_name>_<doc_type>[_<suffix>].<ext>" files for
+    the given (doc_type, ext) pairs, including numbered "_1", "_2", ...
+    variants, so a fresh, unsuffixed "final" file can be written without
+    leftover older versions lying around. Returns the list of removed paths.
+    """
+    if not os.path.isdir(output_dir):
+        return []
+    removed = []
+    suffix = None
+    while True:
+        found_any = False
+        for doc_type, ext in outputs:
+            path = os.path.join(output_dir, output_filename(base_name, doc_type, ext, suffix))
+            if os.path.exists(path):
+                os.remove(path)
+                removed.append(path)
+                found_any = True
+        if suffix is None:
+            suffix = 1
+            continue
+        if not found_any:
+            break
+        suffix += 1
+    return removed
+
+
+def resolve_output_suffix(output_dir, base_name, outputs, force=False):
+    """
+    Decides what suffix this run's outputs should use.
+
+    If `force` is True, any existing unsuffixed or numbered ("_1", "_2", ...)
+    variants of `outputs` are deleted first, and this run writes the plain
+    "<base_name>_<doc_type>.<ext>" files (suffix None) as the new "final"
+    version. Otherwise, behaves like `reserve_output_suffix`: finds a free
+    suffix so nothing existing gets overwritten.
+    """
+    if force:
+        clear_output_variants(output_dir, base_name, outputs)
+        return None
+    return reserve_output_suffix(output_dir, base_name, outputs)
+
+
 def generate_single_puzzle(title, words, size, use_basic=False, verbose=False, max_attempts=1):
     """
     Generate one puzzle, retrying up to `max_attempts` times if some words

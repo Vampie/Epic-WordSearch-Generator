@@ -20,7 +20,7 @@ sys.path.insert(
 from wordsearch.book_builder import (
     generate_single_puzzle,
     output_filename,
-    reserve_output_suffix,
+    resolve_output_suffix,
 )
 from wordsearch import docx_export
 from wordsearch import pdf_render
@@ -54,6 +54,15 @@ if __name__ == "__main__":
     )
     parser.add_argument("--pdf", action="store_true", help="generate PDF output")
     parser.add_argument("--docx", action="store_true", help="generate DOCX output")
+    parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        help=(
+            "overwrite the final output files instead of adding a _1/_2/... "
+            "suffix, and remove any previously generated numbered versions"
+        ),
+    )
     args = parser.parse_args()
 
     # get input file data
@@ -115,7 +124,7 @@ if __name__ == "__main__":
             wanted_outputs.append(("wordsearch", "pdf"))
         suffix = None
         if wanted_outputs and args.output:
-            suffix = reserve_output_suffix(args.output, puzzle_base_name, wanted_outputs)
+            suffix = resolve_output_suffix(args.output, puzzle_base_name, wanted_outputs, force=args.force)
 
         if args.docx:
             if not args.output:

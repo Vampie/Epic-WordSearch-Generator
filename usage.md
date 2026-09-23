@@ -28,6 +28,10 @@ overwritten — a numeric suffix is added instead (`animals_book_1.pdf`,
 (e.g. a big book's PDF, cover, data JSON, and description), they all share
 the same suffix, so a set from one run is easy to tell apart from another.
 
+Pass `-f`/`--force` to skip the suffix and write the plain `<name>_<type>`
+files instead — any existing `_1`/`_2`/... numbered versions for that name
+are deleted first, so you're left with a single "final" set of files.
+
 ---
 
 ## 1. Single puzzle pages — `generate_ws_page.py`
@@ -47,6 +51,8 @@ python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf --docx
   vertical (top-to-bottom) and one diagonal direction only
 - `--pdf` — write a PDF per puzzle
 - `--docx` — write a DOCX per puzzle
+- `-f, --force` — overwrite the final `<title>_wordsearch.<ext>` files and
+  delete any previous `_1`/`_2`/... versions
 
 **Input JSON format:**
 
@@ -84,6 +90,8 @@ python -m scripts.generate_ws_book data/input_book.json output/ -n my_book
   automatically)
 - `-n, --name` — override the output filename (without extension); defaults
   to the JSON's `title`
+- `-f, --force` — overwrite the final `<name>_book.pdf` and delete any
+  previous `_1`/`_2`/... versions
 
 **Input JSON format:** same puzzle format as above, with a book `title` (and
 optionally a `description`) at the root:
@@ -126,6 +134,8 @@ python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json outpu
   lists) or `puzzles` (reuses previously generated puzzle data — see below)
 - `-d, --html-description` — also write a `<name>-description.html` blurb
   with the book's title and category preview
+- `-f, --force` — overwrite the final book/cover/data/description files
+  and delete any previous `_1`/`_2`/... versions (all as one consistent set)
 
 **Input JSON format:** up to 20 themes are used; each theme can set an
 optional `count` (how many words to randomly sample per variation) and the

@@ -22,7 +22,7 @@ from wordsearch.book_builder import (
     assemble_book_pdf,
     generate_single_puzzle,
     output_filename,
-    reserve_output_suffix,
+    resolve_output_suffix,
 )
 from wordsearch.html_export import generate_html_description
 
@@ -164,6 +164,15 @@ if __name__ == "__main__":
         help="default number of words per puzzle when not set per-puzzle via 'count' (default: 20)",
         default=20,
     )
+    parser.add_argument(
+        "-f",
+        "--force",
+        action="store_true",
+        help=(
+            "overwrite the final output files instead of adding a _1/_2/... "
+            "suffix, and remove any previously generated numbered versions"
+        ),
+    )
 
     args = parser.parse_args()
 
@@ -187,7 +196,7 @@ if __name__ == "__main__":
         output_types = [("book", "pdf"), ("cover", "png")]
         if args.html_description:
             output_types.append(("description", "html"))
-        output_suffix = reserve_output_suffix(output_dir, puzzle_name, output_types)
+        output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
 
         # get content descriptions from metadata if available
         with open(args.input, "r", encoding="utf-8") as f:
@@ -221,7 +230,7 @@ if __name__ == "__main__":
         output_types = [("book", "pdf"), ("cover", "png"), ("data", "json")]
         if args.html_description:
             output_types.append(("description", "html"))
-        output_suffix = reserve_output_suffix(output_dir, puzzle_name, output_types)
+        output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
 
         base_puzzle_count = len(data["puzzles"])
         total_puzzle_count = base_puzzle_count * args.copies
