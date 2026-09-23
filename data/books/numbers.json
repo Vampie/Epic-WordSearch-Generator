@@ -1,0 +1,55 @@
+{
+  "title": "Numbers",
+  "puzzles": [
+    {
+      "title": "Prime Numbers",
+      "words": [ "two", "three", "five", "seven", "eleven", "thirteen", "seventeen", "nineteen", "twentythree", "twentynine", "thirtyone", "thirtyseven", "fortyone", "fortythree", "fortyseven", "fiftythree", "fiftynine", "sixtyone", "sixtyseven", "seventythree", "seventynine", "eightythree", "eightynine", "ninetyseven" ],
+      "size": 20
+    },
+    {
+      "title": "Even Numbers",
+      "words": [ "two", "four", "six", "eight", "ten", "twelve", "fourteen", "sixteen", "eighteen", "twenty", "twentytwo", "twentyfour", "twentysix", "twentyeight", "thirty", "thirtytwo", "thirtyfour", "thirtysix", "thirtyeight", "forty", "fortytwo", "fortyfour", "fortysix", "fortyeight" ],
+      "size": 20
+    },
+    {
+      "title": "Odd Numbers",
+      "words": [ "one", "three", "five", "seven", "nine", "eleven", "thirteen", "fifteen", "seventeen", "nineteen", "twentyone", "twentythree", "twentyfive", "twentyseven", "twentynine", "thirtyone", "thirtythree", "thirtyfive", "thirtyseven", "thirtynine", "fortyone", "fortythree", "fortyfive", "fortyseven" ],
+      "size": 20
+    },
+    {
+      "title": "Roman Numerals",
+      "words": [ "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI", "XXII", "XXIII", "XXIV" ],
+      "size": 20
+    },
+    {
+      "title": "Mathematical Constants",
+      "words": [ "pi", "euler", "phi", "gamma", "sqrt2", "sqrt3", "sqrt5", "ln2", "ln10", "tau", "omega", "alpha", "beta", "delta", "theta", "lambda", "sigma", "zeta", "eta", "rho", "psi", "chi", "xi", "mu" ],
+      "size": 20
+    },
+    {
+      "title": "Square Numbers",
+      "words": [ "one", "four", "nine", "sixteen", "twentyfive", "thirtysix", "fortynine", "sixtyfour", "eightyone", "hundred", "hundredtwentyone", "hundredfortyfour", "hundredsixtynine", "hundredeightyfour", "twohundredone", "twohundredtwentyfour", "twohundredfortynine", "twohundredsixtyfour", "twohundredeightyone", "threehundredsix", "threehundredtwentyfive", "threehundredfortynine", "threehundredsixtyfour", "threehundredeightyone" ],
+      "size": 20
+    },
+    {
+      "title": "Cube Numbers",
+      "words": [ "one", "eight", "twentyseven", "sixtyfour", "hundredtwentyfive", "twohundredsixteen", "threehundredfortythree", "fivehundredtwelve", "sevenhundredtwentynine", "thousand", "thousandthreehundredthirtyone", "thousandsevenhundredtwentyeight", "twohundredninetyseven", "twohundredninetyseven", "threehundredseventyfive", "fourhundredfiftysix", "fivehundredthirtynine", "sixhundredtwentyfour", "sevenhundredeleven", "eighthundredeight", "ninehundredseven", "thousandtwentyfour", "thousandonehundredfortythree", "thousandtwohundredsixtyfour" ],
+      "size": 20
+    },
+    {
+      "title": "Fibonacci Sequence",
+      "words": [ "one", "one", "two", "three", "five", "eight", "thirteen", "twentyone", "thirtyfour", "fiftyfive", "eightynine", "onehundredfortyfour", "twohundredthirtythree", "threehundredseventyseven", "sixhundredten", "ninehundredeightyseven", "fifteenhundredninetyseven", "twentyfivehundredeightyfour", "fourthousandonehundredeightyone", "sixtysixhundredsixtyfive", "tenthousandeight", "seventeenthousandsixhundredseventythree", "twentyeightthousandsixhundredeightyone", "fortyfivethousandthreehundredfiftyfour" ],
+      "size": 20
+    },
+    {
+      "title": "Powers of Ten",
+      "words": [ "ten", "hundred", "thousand", "tenthousand", "hundredthousand", "million", "tenmillion", "hundredmillion", "billion", "tenbillion", "hundredbillion", "trillion", "tentrillion", "hundredtrillion", "quadrillion", "tenquadrillion", "hundredquadrillion", "quintillion", "tenquintillion", "hundredquintillion", "sextillion", "tensextillion", "hundredsextillion", "septillion" ],
+      "size": 20
+    },
+    {
+      "title": "Fractions",
+      "words": [ "half", "third", "quarter", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth", "twentyfirst", "twentysecond", "twentythird", "twentyfourth", "twentyfifth" ],
+      "size": 20
+    }
+  ]
+}

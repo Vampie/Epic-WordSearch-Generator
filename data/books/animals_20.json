@@ -1,0 +1,100 @@
+{
+  "title": "Animal Puzzle Book",
+  "puzzles": [
+    {
+      "title": "Mammals",
+      "words": [ "lion", "tiger", "elephant", "giraffe", "zebra", "bear", "wolf", "fox", "deer", "monkey", "gorilla", "chimpanzee", "kangaroo", "koala", "leopard", "cheetah", "rhinoceros", "hippopotamus", "buffalo", "camel" ],
+      "size": 5
+    },
+    {
+      "title": "Birds",
+      "words": [ "sparrow", "eagle", "hawk", "falcon", "owl", "parrot", "penguin", "peacock", "swallow", "crow", "dove", "pigeon", "woodpecker", "flamingo", "ostrich", "heron", "stork", "crane", "robin", "canary" ],
+      "size": 5
+    },
+    {
+      "title": "Reptiles",
+      "words": [ "snake", "lizard", "crocodile", "alligator", "gecko", "iguana", "chameleon", "tortoise", "turtle", "python", "cobra", "viper", "anole", "monitor", "skink", "boa", "adder", "komodo", "gila", "caiman" ],
+      "size": 5
+    },
+    {
+      "title": "Amphibians",
+      "words": [ "frog", "toad", "salamander", "newt", "axolotl", "caecilian", "treefrog", "bullfrog", "spadefoot", "mudpuppy", "hellbender", "glassfrog", "dartfrog", "firebelly", "olm", "surinam", "rainfrog", "whistlingfrog", "reedfrog", "torrentfrog" ],
+      "size": 5
+    },
+    {
+      "title": "Fish",
+      "words": [ "salmon", "trout", "cod", "tuna", "shark", "ray", "carp", "bass", "catfish", "pike", "eel", "anchovy", "sardine", "mackerel", "halibut", "flounder", "grouper", "snapper", "barracuda", "goldfish" ],
+      "size": 5
+    },
+    {
+      "title": "Sea Creatures",
+      "words": [ "octopus", "squid", "jellyfish", "starfish", "crab", "lobster", "shrimp", "clam", "oyster", "mussel", "seaurchin", "seacucumber", "anemone", "coral", "barnacle", "krill", "mantis", "horseshoecrab", "whelk", "scallop" ],
+      "size": 5
+    },
+    {
+      "title": "Insects",
+      "words": [ "ant", "bee", "wasp", "fly", "mosquito", "dragonfly", "butterfly", "moth", "beetle", "grasshopper", "cricket", "cockroach", "termite", "ladybug", "firefly", "aphid", "cicada", "mantis", "earwig", "silverfish" ],
+      "size": 5
+    },
+    {
+      "title": "Arachnids",
+      "words": [ "spider", "scorpion", "tick", "mite", "tarantula", "blackwidow", "wolfspider", "jumpingspider", "brownrecluse", "harvestman", "camelspider", "whipspider", "solifuge", "orbweaver", "trapdoor", "funnelweb", "crabspider", "lynxspider", "cellarspider", "parasiticmite" ],
+      "size": 5
+    },
+    {
+      "title": "Farm Animals",
+      "words": [ "cow", "pig", "sheep", "goat", "horse", "donkey", "chicken", "duck", "turkey", "goose", "rabbit", "dog", "cat", "llama", "alpaca", "ox", "buffalo", "yak", "mule", "pony" ],
+      "size": 5
+    },
+    {
+      "title": "Pets",
+      "words": [ "dog", "cat", "hamster", "guineapig", "rabbit", "parakeet", "goldfish", "turtle", "ferret", "gerbil", "canary", "budgie", "cockatiel", "rat", "mouse", "chinchilla", "snake", "lizard", "frog", "tarantula" ],
+      "size": 5
+    },
+    {
+      "title": "Wild Cats",
+      "words": [ "lion", "tiger", "leopard", "cheetah", "jaguar", "cougar", "lynx", "bobcat", "ocelot", "caracal", "snowleopard", "cloudedleopard", "serval", "margay", "puma", "panther", "mountainlion", "wildcat", "sandcat", "fishingcat" ],
+      "size": 5
+    },
+    {
+      "title": "Primates",
+      "words": [ "monkey", "gorilla", "chimpanzee", "baboon", "orangutan", "gibbon", "lemur", "tamarin", "marmoset", "mandrill", "colobus", "langur", "howler", "capuchin", "squirrelmonkey", "proboscis", "spidermonkey", "vervet", "guenon", "bonobo" ],
+      "size": 5
+    },
+    {
+      "title": "Rodents",
+      "words": [ "rat", "mouse", "squirrel", "chipmunk", "beaver", "porcupine", "guineapig", "hamster", "gerbil", "vole", "lemming", "chinchilla", "capybara", "nutria", "agouti", "degu", "packrat", "kangaroorat", "muskrat", "woodrat" ],
+      "size": 5
+    },
+    {
+      "title": "Marsupials",
+      "words": [ "kangaroo", "koala", "wombat", "wallaby", "opossum", "bandicoot", "quokka", "quoll", "tasmaniandevil", "numbat", "bettong", "bilby", "potoroo", "treekangaroo", "glider", "dunnart", "planigale", "antechinus", "cuscus", "pygmypossum" ],
+      "size": 5
+    },
+    {
+      "title": "African Animals",
+      "words": [ "elephant", "lion", "zebra", "giraffe", "hippopotamus", "rhinoceros", "cheetah", "leopard", "buffalo", "wildebeest", "gazelle", "hyena", "baboon", "crocodile", "ostrich", "meerkat", "aardvark", "pangolin", "okapi", "springbok" ],
+      "size": 5
+    },
+    {
+      "title": "Arctic Animals",
+      "words": [ "polar bear", "arctic fox", "walrus", "seal", "narwhal", "beluga", "caribou", "snowy owl", "muskox", "lemming", "ptarmigan", "arctic hare", "wolf", "orca", "penguin", "krill", "arctic tern", "cod", "shrimp", "plankton" ],
+      "size": 5
+    },
+    {
+      "title": "Desert Animals",
+      "words": [ "camel", "fennec fox", "scorpion", "snake", "lizard", "meerkat", "jerboa", "kangaroo rat", "gazelle", "oryx", "vulture", "gecko", "monitor", "spiny mouse", "sand cat", "tortoise", "tarantula", "antelope", "roadrunner", "beetle" ],
+      "size": 5
+    },
+    {
+      "title": "Rainforest Animals",
+      "words": [ "jaguar", "toucan", "sloth", "monkey", "frog", "parrot", "tapir", "anteater", "armadillo", "snake", "caiman", "macaw", "butterfly", "orchid mantis", "tarantula", "howler monkey", "capybara", "ocelot", "treefrog", "leafcutter ant" ],
+      "size": 5
+    },
+    {
+      "title": "Savanna Animals",
+      "words": [ "lion", "elephant", "zebra", "giraffe", "cheetah", "hyena", "wildebeest", "gazelle", "buffalo", "ostrich", "hippopotamus", "rhinoceros", "baboon", "vulture", "jackal", "aardvark", "pangolin", "meerkat", "termite", "python" ],
+      "size": 5
+    }
+  ]
+}

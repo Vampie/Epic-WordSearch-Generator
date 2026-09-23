@@ -1,0 +1,56 @@
+{
+  "title": "Algemeen 4 letters",
+  "puzzles": [
+    {
+      "title": "Puzzel 1",
+      "words": [ "quiz", "boom", "vlog", "gala", "kalf", "flux", "jaar", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 2",
+      "words": [ "fiets", "rook", "glas", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 3",
+      "words": [ "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 4",
+      "words": [ "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 5",
+      "words": [ "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 6",
+      "words": [ "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 7",
+      "words": [ "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "trap", "vies", "hark", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 8",
+      "words": [ "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "boek", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 9",
+      "words": [ "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "voet", "zout", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel 10",
+      "words": [ "voet", "zout", "boek", "trap", "vies", "hark", "ping", "foto", "type", "wolf", "deur", "blik", "quiz", "boom", "mars", "film", "auto", "tent", "vuur", "data", "code", "bank", "zoom", "lava", "byte", "chef", "pool", "meta", "lamp", "drop", "surf", "kook", "glas", "papa", "muis", "fiets", "rook", "vlog", "gala", "kalf", "flux" ],
+      "size": 10
+    }
+  ]
+}
+``

@@ -1,0 +1,50 @@
+{
+  "puzzles": [
+    {
+      "title": "Dieren",
+      "words": [
+        "Hond",
+        "Kat",
+        "Paard",
+        "Koe",
+        "Schaap",
+        "Geit",
+        "Varken",
+        "Kip",
+        "Eend",
+        "Gans",
+        "Duif",
+        "Konijn",
+        "Hert",
+        "Vos",
+        "Beer",
+        "Leeuw",
+        "Tijger",
+        "Olifant",
+        "Giraf",
+        "Zebra",
+        "Krokodil",
+        "Slang",
+        "Schildpad",
+        "Dolfijn",
+        "Walvis",
+        "Haai",
+        "Octopus",
+        "Papegaai",
+        "Kanarie",
+        "Meeuw",
+        "Adelaar",
+        "Uil",
+        "Kraai",
+        "Vlinder",
+        "Bij",
+        "Mier",
+        "Spin",
+        "Kreeft",
+        "Krab",
+        "Zeepaardje"
+      ],
+      "size": 15
+    }
+  ]
+}

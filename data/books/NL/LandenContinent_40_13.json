@@ -1,0 +1,45 @@
+{
+  "title": "Wereldlanden Puzzelboek",
+  "puzzles": [
+    {
+      "title": "Afrika - Deel 1",
+      "words": [ "Kameroen", "Eritrea", "Soedan", "Mauritanie", "Burundi", "Tsjaad", "Libie", "Marokko", "Rwanda", "Malawi", "Gabon", "Benin", "Algerije", "Namibie", "Ghana", "Somalia", "Ethiopie", "Lesotho", "Djibouti", "Gambia", "Tunesie", "Kenia", "Niger", "Seychellen", "Tanzania", "Burkina", "Eswatini", "Guinea", "Zambia", "Egypte", "Botswana", "Senegal", "Nigeria", "Comoren", "Togo", "Liberia", "Mali", "Uganda", "Angola", "Congo" ],
+      "size": 13
+    },
+    {
+      "title": "Afrika - Deel 2",
+      "words": [ "Senegal", "Namibie", "Djibouti", "Comoren", "Rwanda", "Burkina", "Marokko", "Seychellen", "Guinea", "Ethiopie", "Malawi", "Tsjaad", "Somalia", "Benin", "Eritrea", "Burundi", "Gambia", "Egypte", "Gabon", "Tanzania", "Lesotho", "Botswana", "Togo", "Zambia", "Niger", "Mauritanie", "Algerije", "Ghana", "Kenia", "Tunesie", "Kameroen", "Uganda", "Soedan", "Congo", "Eswatini", "Mali", "Angola", "Libie", "Nigeria", "Liberia" ],
+      "size": 13
+    },
+    {
+      "title": "Europa - Deel 1",
+      "words": [ "Ierland", "Servie", "Moldavie", "Griekenland", "Hongarije", "Cyprus", "Monaco", "Belarus", "Tsjechie", "Denemarken", "Zwitserland", "Noorwegen", "Andorra", "Albanie", "Finland", "Luxemburg", "Slovenie", "Oostenrijk", "Zweden", "Portugal", "Belgie", "Malta", "Roemenie", "Vaticaan", "Oekraine", "IJsland", "Montenegro", "Spanje", "Bulgarije", "Polen", "Georgie", "Italie", "Kosovo", "Nederland", "Rusland", "Letland", "Estland", "Litouwen", "Frankrijk", "Croatia" ],
+      "size": 13
+    },
+    {
+      "title": "Europa - Deel 2",
+      "words": [ "Finland", "Albanie", "Letland", "Georgie", "Hongarije", "Slovenie", "Zweden", "Nederland", "Cyprus", "Bulgarije", "Moldavie", "Luxemburg", "Zwitserland", "Polen", "Oekraine", "Ierland", "Kosovo", "Servie", "Malta", "Vaticaan", "Monaco", "Tsjechie", "Rusland", "Noorwegen", "Croatia", "Andorra", "Griekenland", "Oostenrijk", "Roemenie", "IJsland", "Italie", "Belgie", "Denemarken", "Estland", "Litouwen", "Spanje", "Montenegro", "Belarus", "Portugal", "Frankrijk" ],
+      "size": 13
+    },
+    {
+      "title": "Azie - Deel 1",
+      "words": [ "Filipijnen", "Qatar", "Jordanie", "Myanmar", "Armenie", "Bangladesh", "China", "Oezbekistan", "Mongolie", "Brunei", "Irak", "Koeweit", "Thailand", "Israel", "Turkije", "Maleisie", "Cambodja", "SriLanka", "Iran", "Vietnam", "Pakistan", "VK", "Indonesie", "Libanon", "Bahrein", "Oman", "Afghanistan", "Syrie", "ZuidKorea", "Laos", "Kazakhstan", "Maldiven", "Singapore", "India", "Jemen", "Nepal", "Bhutan", "Japan", "Cyprus", "Taiwan" ],
+      "size": 13
+    },
+    {
+      "title": "Azie - Deel 2",
+      "words": [ "Jordanie", "Maleisie", "Laos", "Vietnam", "Turkije", "Brunei", "Myanmar", "Singapore", "Bahrein", "Oman", "Syrie", "Bangladesh", "China", "Filipijnen", "Cambodja", "Pakistan", "ZuidKorea", "Cyprus", "Armenie", "Jemen", "Kazakhstan", "Bhutan", "Koeweit", "India", "Maldiven", "Qatar", "VK", "Afghanistan", "Nepal", "Iran", "SriLanka", "Israel", "Thailand", "Indonesie", "Oezbekistan", "Japan", "Irak", "Taiwan", "Libanon", "Mongolie" ],
+      "size": 13
+    },
+    {
+      "title": "Amerika - Deel 1",
+      "words": [ "Suriname", "Barbados", "Curacao", "Dominica", "Tobago", "Salvador", "Saba", "Grenada", "Bolivia", "Chili", "Jamaica", "Montserrat", "Argentinie", "StMartin", "Guyana", "Bonaire", "Venezuela", "Nevis", "Martinique", "Uruguay", "Nicaragua", "Antigua", "Aruba", "Colombia", "Turks", "Anguilla", "StVincent", "Haiti", "Brazilie", "SaintKitts", "Ecuador", "Belize", "Cayman", "Bahamas", "USA", "Cuba", "Guadeloupe", "DomRep", "PuertoRico", "StBarts" ],
+      "size": 13
+    },
+    {
+      "title": "Amerika - Deel 2",
+      "words": [ "Grenada", "Martinique", "Tobago", "SaintLucia", "Colombia", "Montserrat", "CostaRica", "Guatemala", "Anguilla", "Dominica", "Mexico", "Aruba", "Venezuela", "Guyana", "StBarts", "Curacao", "Antigua", "PuertoRico", "Cayman", "Saba", "Barbados", "Turks", "Ecuador", "Chili", "SaintKitts", "DomRep", "Salvador", "Guadeloupe", "Haiti", "Nevis", "Belize", "Bahamas", "StMartin", "StVincent", "Uruguay", "Jamaica", "Nicaragua", "Canada", "Trinidad", "FransGuyana" ],
+      "size": 13
+    }
+  ]
+}

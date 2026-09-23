@@ -1,0 +1,55 @@
+{
+  "title": "Airplanes Puzzle Book",
+  "puzzles": [
+    {
+      "title": "Types of Aircraft",
+      "words": [ "jet", "propeller", "glider", "biplane", "turboprop", "fighter", "airbus", "boeing", "helicopter", "drone", "cargo", "liner", "seaplane", "ultralight", "zeppelin", "trijet", "monoplane", "commuter", "regional", "supersonic", "business", "trainer", "experimental", "transport", "airliner", "amphibian", "microlight" ],
+      "size": 20
+    },
+    {
+      "title": "Airplane Parts",
+      "words": [ "wing", "rudder", "flap", "nose", "fuselage", "engine", "tail", "gear", "brakes", "spoiler", "cabin", "seat", "cockpit", "aileron", "elevator", "stabilizer", "bulkhead", "windscreen", "cowling", "pylon", "strut", "fairing", "canopy", "antenna", "winglet", "skid", "spinner" ],
+      "size": 20
+    },
+    {
+      "title": "Airlines",
+      "words": [ "delta", "united", "ryanair", "qantas", "emirates", "lufthansa", "airasia", "jetblue", "alaska", "iberia", "spirit", "swiss", "airfrance", "klm", "cathay", "singapore", "turkish", "etihad", "aeroflot", "brussels", "norwegian", "finnair", "tap", "evaair", "sas", "thai", "airindia" ],
+      "size": 20
+    },
+    {
+      "title": "Airports",
+      "words": [ "heathrow", "schiphol", "narita", "dubai", "jfk", "orly", "gatwick", "osaka", "miami", "vienna", "zurich", "dallas", "frankfurt", "charles", "barajas", "changi", "istanbul", "doha", "hongkong", "lax", "munich", "brussels", "toronto", "sydney", "delhi", "madrid", "rome" ],
+      "size": 20
+    },
+    {
+      "title": "Famous Planes",
+      "words": [ "concorde", "dreamliner", "airbus", "boeing", "spitfire", "mustang", "falcon", "raptor", "phantom", "mirage", "hornet", "hawk", "tomcat", "lightning", "vulcan", "harrier", "blackbird", "mosquito", "typhoon", "corsair", "lancaster", "banshee", "sabrehog", "skyhawk", "intruder", "prowler", "avenger" ],
+      "size": 20
+    },
+    {
+      "title": "Flight Crew",
+      "words": [ "pilot", "copilot", "crew", "steward", "attendant", "captain", "purser", "engineer", "marshal", "trainer", "cadet", "chief", "navigator", "dispatcher", "loadmaster", "technician", "mechanic", "controller", "observer", "radio", "operator", "instructor", "supervisor", "assistant", "flightdeck", "groundcrew", "scheduler" ],
+      "size": 20
+    },
+    {
+      "title": "Navigation",
+      "words": [ "radar", "gps", "compass", "charts", "beacon", "signal", "vector", "altitude", "bearing", "course", "marker", "track", "heading", "waypoint", "fix", "locator", "ILS", "ADF", "VOR", "DME", "glideslope", "approach", "departure", "routing", "navdata", "airway", "sector" ],
+      "size": 20
+    },
+    {
+      "title": "Safety Terms",
+      "words": [ "mayday", "brace", "oxygen", "belt", "evacuation", "slide", "mask", "alarm", "secure", "checklist", "signal", "alert", "fireproof", "liferaft", "vest", "extinguisher", "hazmat", "emergency", "landing", "impact", "rescue", "survival", "escape", "drill", "lifeboat", "firstaid", "firedoor" ],
+      "size": 20
+    },
+    {
+      "title": "Airplane History",
+      "words": [ "wright", "kittyhawk", "spirit", "amelia", "zeppelin", "douglas", "lockheed", "cessna", "vulcan", "concorde", "hawk", "fokker", "curtiss", "dehavilland", "messerschmitt", "mig", "yakovlev", "antonov", "tupolev", "sukhoi", "northrop", "grumman", "beechcraft", "piper", "farman", "blériot", "handley" ],
+      "size": 20
+    },
+    {
+      "title": "Airport Services",
+      "words": [ "checkin", "baggage", "customs", "security", "boarding", "ticket", "lounge", "shuttle", "parking", "rental", "escort", "cargo", "immigration", "passport", "terminal", "gate", "transfer", "handling", "ground", "fueling", "maintenance", "catering", "vip", "concierge", "lostfound", "information", "cleaning" ],
+      "size": 20
+    }
+  ]
+}

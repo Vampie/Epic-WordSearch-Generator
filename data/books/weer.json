@@ -1,0 +1,259 @@
+{
+  "title": "Weerpuzzels",
+  "puzzles": [
+    {
+      "title": "Wolken",
+      "words": [ "cumulus", "stratus", "cirrus", "nimbus", "altostratus", "altocumulus", "cirrostratus", "cirrocumulus", "lenticular", "pileus", "mammatus", "contrail", "fog", "mist", "haze", "cloudbase", "cloudtop", "overcast", "broken", "scattered", "clear", "sky", "cloudburst", "clouddeck", "cloudlayer", "cloudstreet", "cloudbank", "cloudcover", "cloudform", "cloudtype", "cloudatlas", "cloudshadow", "cloudwater", "cloudice", "droplet", "particle", "system", "mass", "belt", "zone" ],
+      "size": 5
+    },
+    {
+      "title": "Neerslag",
+      "words": [ "regen", "motregen", "hagel", "sneeuw", "ijzel", "smeltwater", "druppel", "regenbui", "stortbui", "onweersbui", "stormbui", "regenval", "water", "ijs", "ijskristal", "ijskorrel", "ijsklomp", "ijskegel", "korsten", "korrels", "klompjes", "kristallen", "korrelregen", "korrelbui", "korrelstorm", "korrelval", "korrelhagel", "korrelijs", "korrelwater", "korrelmist", "korrelwolken", "korrelwind", "korrelstormen", "korrelbuien", "regenval", "nevel", "vorst", "hagelbui", "ijsregen", "smelt" ],
+      "size": 5
+    },
+    {
+      "title": "Stormen",
+      "words": [ "storm", "orkaan", "cycloon", "tyfoon", "tornado", "windhoos", "wervelwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormkracht", "stormwind", "stormregen", "stormhagel", "stormijs", "stormmist", "stormnevel", "stormlucht", "stormwolken", "stormzee", "stormgolf", "stormvloed", "stormschade", "stormalarm", "stormdreiging", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormfrontlijn", "stormcirculatie", "stormpatroon", "stormcyclus" ],
+      "size": 5
+    },
+    {
+      "title": "Klimaat",
+      "words": [ "klimaat", "temperatuur", "luchtvocht", "neerslag", "windsnelheid", "windrichting", "zonneschijn", "bewolking", "klimaatzone", "klimaatmodel", "klimaatdata", "klimaatgrafiek", "klimaatkaart", "klimaatstudie", "klimaatrapport", "klimaatbeleid", "klimaatwet", "klimaatfactor", "klimaatindex", "klimaatgemiddelde", "klimaatnorm", "klimaatwaarde", "klimaatperiode", "klimaatcyclus", "klimaattrend", "klimaatpatroon", "klimaatvariatie", "klimaatimpact", "klimaateffect", "klimaatrisico", "klimaatvoorsp", "klimaatproject", "klimaatscenario", "klimaatadapt", "klimaatkoeling", "klimaatverand", "klimaatopwarm", "klimaatstudie", "klimaatonderzoek", "klimaatgrafiek" ],
+      "size": 5
+    },
+    {
+      "title": "Seizoenen",
+      "words": [ "lente", "zomer", "herfst", "winter", "voorjaar", "najaar", "zomertijd", "wintertijd", "daglengte", "nachtlengte", "zonhoogte", "bloei", "bladval", "vorst", "dooiperiode", "stormseizoen", "regenperiode", "droogte", "hittegolf", "koudegolf", "ijsperiode", "smeltperiode", "oogsttijd", "zaaitijd", "groeiseizoen", "rustseizoen", "bloesem", "bladgroei", "bladkleur", "bladverlies", "bloemknop", "vruchtvorming", "rijping", "winterrust", "zomerwarmte", "herfststorm", "lenteregen", "zomerregen", "winterregen", "herfstregen", "regenbui" ],
+      "size": 5
+    },
+    {
+      "title": "Wind",
+      "words": [ "wind", "bries", "stormwind", "orkaanwind", "tornado", "tyfoon", "cycloon", "windkracht", "windmeter", "windsnelheid", "windrichting", "windvlaag", "windstoot", "windhoos", "windschering", "windpatroon", "windveld", "windzone", "windgordel", "windcirculatie", "windrotatie", "windenergie", "winddruk", "windfront", "windlijn", "windgebied", "windalarm", "winddreiging", "windontwikkeling", "windintensiteit", "windkrachtig", "windstil", "windschade", "windstorm", "windgolf", "windzee", "windlucht", "windwolken", "windmist", "windnevel" ],
+      "size": 5
+    },
+    {
+      "title": "Temperatuur",
+      "words": [ "warmte", "kou", "hitte", "vorst", "ijs", "smelt", "dooi", "temperatuur", "thermometer", "warm", "koud", "heet", "ijskoud", "warmtegolf", "koudegolf", "warmtefront", "koufront", "warmtezone", "kouzone", "warmtepatroon", "koupatroon", "warmtecyclus", "koucyclus", "warmteperiode", "kouperiode", "warmtewaarschuwing", "koudalarm", "warmtedreiging", "koudedreiging", "warmtefrontlijn", "koufrontlijn", "warmteontwikkeling", "kouontwikkeling", "warmte-intensiteit", "kou-intensiteit", "warmte-effect", "kou-effect", "warmte-impact", "kou-impact", "warmteperiode", "kouperiode" ],
+      "size": 5
+    },
+    {
+      "title": "Extreme Weer",
+      "words": [ "hittegolf", "koudegolf", "droogte", "overstroming", "storm", "orkaan", "tornado", "tyfoon", "cycloon", "blizzard", "ijsstorm", "regenstorm", "hagelstorm", "zandstorm", "stofstorm", "miststorm", "sneeuwstorm", "ijsregen", "ijzel", "onweer", "bliksem", "donder", "lawine", "modderstroom", "aardverschuiving", "stormvloed", "stormgolf", "stormschade", "stormdreiging", "stormalarm", "stormwaarschuwing", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormkern" ],
+      "size": 5
+    },
+    {
+      "title": "Meteorologie",
+      "words": [ "weer", "klimaat", "temperatuur", "luchtvocht", "neerslag", "windsnelheid", "windrichting", "zonneschijn", "bewolking", "druk", "luchtdruk", "barometer", "thermometer", "hygrometer", "anemometer", "weerstation", "weersvoorsp", "weermodel", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerrapport", "weerstudie", "weeronderzoek", "weerscenario", "weersimulatie", "weersysteem", "weerpatroon", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing" ],
+      "size": 5
+    },
+    {
+      "title": "Atmosfeer",
+      "words": [ "atmosfeer", "troposfeer", "stratosfeer", "mesosfeer", "thermosfeer", "exosfeer", "lucht", "luchtlaag", "luchtmassa", "luchtcirculatie", "luchtstroming", "luchtpatroon", "luchtzone", "luchtgordel", "luchtfront", "luchtlijn", "luchtgebied", "luchtalarm", "luchtontwikkeling", "luchtintensiteit", "luchtenergie", "luchtdruk", "luchtwarmte", "luchtkou", "luchtvocht", "luchtnevel", "luchtmist", "luchtwolken", "luchtstorm", "luchtregen", "luchtijs", "luchtwind", "luchtzee", "luchtgolf", "luchtfrontlijn", "luchtrotatie", "luchtkern", "luchtbaan", "luchtpad", "luchtpatroon" ],
+      "size": 5
+    },
+
+    {
+      "title": "Weerfenomenen",
+      "words": [ "regenboog", "bliksem", "donder", "mist", "haze", "ijzel", "hagel", "sneeuw", "storm", "orkaan", "tornado", "tyfoon", "cycloon", "zandstorm", "stofstorm", "ijsregen", "ijskristal", "ijskorrel", "ijsklomp", "ijskegel", "korsten", "korrels", "klompjes", "kristallen", "korrelregen", "korrelbui", "korrelstorm", "korrelval", "korrelhagel", "korrelijs", "korrelwater", "korrelmist", "korrelwolken", "korrelwind", "korrelstormen", "korrelbuien", "regenval", "nevel", "vorst", "hagelbui", "ijsregen" ],
+      "size": 5
+    },
+    {
+      "title": "Weerwaarschuwingen",
+      "words": [ "codegeel", "coderood", "codeoranje", "stormwaarschuwing", "regenwaarschuwing", "hittewaarschuwing", "koudewaarschuwing", "ijswaarschuwing", "hagelwaarschuwing", "windwaarschuwing", "mistwaarschuwing", "nevelwaarschuwing", "onweerwaarschuwing", "bliksemwaarschuwing", "donderwaarschuwing", "lawinewaarschuwing", "overstromingsalarm", "stormalarm", "regenalarm", "hittealarm", "koudealarm", "ijsalarm", "hagelalarm", "windalarm", "mistalarm", "nevelalarm", "onweeralarm", "bliksemalarm", "donderalarm", "lawinealarm", "stormdreiging", "regendreiging", "hittedreiging", "koudedreiging", "ijsdreiging", "hageldreiging", "winddreiging", "mistdreiging", "neveldreiging", "onweerdreiging" ],
+      "size": 5
+    },
+    {
+      "title": "Klimaatverandering",
+      "words": [ "opwarming", "broeikaseffect", "CO2", "methaan", "klimaatverandering", "klimaatopwarming", "klimaatadaptatie", "klimaatmitigatie", "klimaatimpact", "klimaateffect", "klimaatrisico", "klimaatvoorsp", "klimaatproject", "klimaatscenario", "klimaatbeleid", "klimaatwet", "klimaatstudie", "klimaatonderzoek", "klimaatrapport", "klimaatdata", "klimaatgrafiek", "klimaatkaart", "klimaatmodel", "klimaatcyclus", "klimaattrend", "klimaatpatroon", "klimaatvariatie", "klimaatfactor", "klimaatindex", "klimaatgemiddelde", "klimaatnorm", "klimaatwaarde", "klimaatperiode", "klimaatkoeling", "klimaatverand", "klimaatopwarm", "klimaatstudie", "klimaatonderzoek", "klimaatgrafiek", "klimaatimpact" ],
+      "size": 5
+    },
+    {
+      "title": "Nevel en Mist",
+      "words": [ "mist", "nevel", "haze", "smog", "damp", "waterdamp", "condens", "mistbank", "mistlaag", "mistzone", "mistgordel", "mistfront", "mistlijn", "mistgebied", "mistontwikkeling", "mistintensiteit", "mistwaarschuwing", "mistalarm", "mistdreiging", "mistpatroon", "mistcyclus", "mistperiode", "misttrend", "mistvariatie", "mistimpact", "misteffect", "mistrisico", "mistprojectie", "mistscenario", "miststudie", "mistonderzoek", "mistgrafiek", "mistkaart", "mistdata", "mistanalyse", "mistfrontlijn", "mistrotatie", "mistkern", "mistbaan", "mistpad" ],
+      "size": 5
+    },
+    {
+      "title": "Onweer",
+      "words": [ "onweer", "bliksem", "donder", "storm", "regen", "hagel", "ijsregen", "ijzel", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormfrontlijn" ],
+      "size": 5
+    },
+    {
+      "title": "Zon en Straling",
+      "words": [ "zon", "zonlicht", "zonneschijn", "zonnestraling", "UV", "infrarood", "warmte", "hitte", "zonhoogte", "zonpositie", "zonsopgang", "zonsondergang", "daglengte", "nachtlengte", "zonkracht", "zonintensiteit", "zonenergie", "zonwarmte", "zonpatroon", "zoncyclus", "zonperiode", "zontrend", "zonvariatie", "zonimpact", "zoneffect", "zonrisico", "zonprojectie", "zonscenario", "zonstudie", "zononderzoek", "zongrafiek", "zonkaart", "zondata", "zonanalyse", "zonfront", "zonlijn", "zongordel", "zonzone", "zongebied", "zonwaarschuwing", "zonalarm" ],
+      "size": 5
+    },
+    {
+      "title": "IJsvorming",
+      "words": [ "ijs", "ijskristal", "ijskorrel", "ijsklomp", "ijskegel", "ijskorsten", "ijskorrels", "ijsklompjes", "ijskristallen", "ijslaag", "ijskap", "ijsveld", "ijszone", "ijsgordel", "ijsfront", "ijsontwikkeling", "ijsintensiteit", "ijsenergie", "ijsdruk", "ijspatroon", "ijscyclus", "ijsperiode", "ijstrend", "ijsvariatie", "ijsimpact", "ijseffect", "ijsrisico", "ijsprojectie", "ijsscenario", "ijsstudie", "ijsanalyse", "ijsdata", "ijsgrafiek", "ijskaart", "ijsalarm", "ijswaarschuwing", "ijsdreiging", "ijsrotatie", "ijskern", "ijsbaan", "ijspad" ],
+      "size": 5
+    },
+    {
+      "title": "Sneeuw",
+      "words": [ "sneeuw", "sneeuwvlok", "sneeuwstorm", "sneeuwbui", "sneeuwval", "sneeuwlaag", "sneeuwdek", "sneeuwzone", "sneeuwgordel", "sneeuwfront", "sneeuwontwikkeling", "sneeuwintensiteit", "sneeuwenergie", "sneeuwdruk", "sneeuwpatroon", "sneeuwcyclus", "sneeuwperiode", "sneeuwtrend", "sneeuwvariatie", "sneeuwimpact", "sneeuweffect", "sneeuwrisico", "sneeuwprojectie", "sneeuwscenario", "sneeuwstudie", "sneeuwanalyse", "sneeuwdata", "sneeuwgrafiek", "sneeuwkaart", "sneeuwalarm", "sneeuwwaarschuwing", "sneeuwdreiging", "sneeuwrotatie", "sneeuwkern", "sneeuwbaan", "sneeuwpad", "sneeuwmist", "sneeuwnevel", "sneeuwregen", "sneeuwhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Hagel",
+      "words": [ "hagel", "hagelsteen", "hagelbui", "hagelstorm", "hagelval", "hagelzone", "hagelgordel", "hagelfront", "hagelontwikkeling", "hagelintensiteit", "hagelenergie", "hageldruk", "hagelpatroon", "hagelcyclus", "hagelperiode", "hageltrend", "hagelvariatie", "hagelimpact", "hageleffect", "hagelrisico", "hagelprojectie", "hagelscenario", "hagelstudie", "hagelanalyse", "hageldata", "hagelgrafiek", "hagelkaart", "hagelalarm", "hagelwaarschuwing", "hageldreiging", "hagelrotatie", "hagelkern", "hagelbaan", "hagelpad", "hagelmist", "hagelnevel", "hagelregen", "hagelijs", "hagelwind", "hagelstormen", "hagelbuien" ],
+      "size": 5
+    },
+    {
+      "title": "Regen",
+      "words": [ "regen", "regenbui", "regenstorm", "regenval", "regenperiode", "regenpatroon", "regenfront", "regenlijn", "regenzone", "regengordel", "regenontwikkeling", "regenintensiteit", "regenenergie", "regendruk", "regencyclus", "regentrend", "regenvariatie", "regenimpact", "regeneffect", "regenrisico", "regenprojectie", "regenscenario", "regenstudie", "regenanalyse", "regendata", "regengrafiek", "regenkaart", "regenalarm", "regenwaarschuwing", "regendreiging", "regenrotatie", "regenkern", "regenbaan", "regenpad", "regenmist", "regennevel", "regenhagel", "regenijs", "regenwind", "regenstormen", "regenbuien" ],
+      "size": 5
+    },
+
+    {
+      "title": "Luchtdruk",
+      "words": [ "luchtdruk", "barometer", "hogedruk", "lagedruk", "drukgebied", "drukzone", "drukfront", "druklijn", "drukpatroon", "drukcyclus", "drukperiode", "druktrend", "drukvariatie", "drukimpact", "drukeffect", "drukrisico", "drukprojectie", "drukscenario", "drukstudie", "drukanalyse", "drukdata", "drukgrafiek", "drukkaart", "drukalarm", "drukwaarschuwing", "drukdreiging", "drukontwikkeling", "drukintensiteit", "drukenergie", "drukrotatie", "drukkern", "drukbaan", "drukpad", "drukmist", "druknevel", "drukregen", "drukhagel", "drukijs", "drukwind", "drukstorm", "drukfrontlijn" ],
+      "size": 5
+    },
+    {
+      "title": "Vochtigheid",
+      "words": [ "luchtvocht", "vocht", "waterdamp", "condens", "hygrometer", "vochtzone", "vochtfront", "vochtlijn", "vochtpatroon", "vochtcyclus", "vochtperiode", "vochttrend", "vochtvariatie", "vochtimpact", "vochteffect", "vochtrisico", "vochtprojectie", "vochtscenario", "vochtstudie", "vochtanalyse", "vochtdata", "vochtgrafiek", "vochtkaart", "vochtalarm", "vochtwaarschuwing", "vochtdreiging", "vochtontwikkeling", "vochtintensiteit", "vochtenergie", "vochtrotatie", "vochtkern", "vochtbaan", "vochtpad", "vochtmist", "vochtnevel", "vochtregen", "vochthagel", "vochtijs", "vochtwind", "vochtstorm" ],
+      "size": 5
+    },
+    {
+      "title": "Weerkaarten",
+      "words": [ "weerkaart", "isobaar", "isotherm", "frontlijn", "drukgebied", "hogedruk", "lagedruk", "stormfront", "regenfront", "koufront", "warmtefront", "weerpatroon", "weerzone", "weergordel", "weerdata", "weergrafiek", "weersymbool", "weerstation", "weeranalyse", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad" ],
+      "size": 5
+    },
+    {
+      "title": "Voorspellingen",
+      "words": [ "weersvoorsp", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerstudie", "weeronderzoek", "weerrapport", "weersymbool", "weersysteem", "weersimulatie", "weerscenario", "weersignaal", "weersignaal", "weersignaal", "weersignaal", "weersignaal", "weersignaal" ],
+      "size": 5
+    },
+    {
+      "title": "Orkanen",
+      "words": [ "orkaan", "cycloon", "tyfoon", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Tornado's",
+      "words": [ "tornado", "windhoos", "wervelwind", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Tyfoons",
+      "words": [ "tyfoon", "cycloon", "orkaan", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Cyclonen",
+      "words": [ "cycloon", "tyfoon", "orkaan", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Bliksem",
+      "words": [ "bliksem", "donder", "onweer", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+    {
+      "title": "Donder",
+      "words": [ "donder", "bliksem", "onweer", "storm", "stormwind", "stormvlaag", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen", "stormhagel" ],
+      "size": 5
+    },
+
+    {
+      "title": "Mist",
+      "words": [ "mist", "nevel", "haze", "smog", "damp", "waterdamp", "condens", "mistbank", "mistlaag", "mistzone", "mistgordel", "mistfront", "mistlijn", "mistgebied", "mistontwikkeling", "mistintensiteit", "mistwaarschuwing", "mistalarm", "mistdreiging", "mistpatroon", "mistcyclus", "mistperiode", "misttrend", "mistvariatie", "mistimpact", "misteffect", "mistrisico", "mistprojectie", "mistscenario", "miststudie", "mistonderzoek", "mistgrafiek", "mistkaart", "mistdata", "mistanalyse", "mistfrontlijn", "mistrotatie", "mistkern", "mistbaan", "mistpad" ],
+      "size": 5
+    },
+    {
+      "title": "Smog",
+      "words": [ "smog", "luchtvervuiling", "mist", "nevel", "haze", "rook", "uitstoot", "fijnstof", "ozon", "luchtkwaliteit", "luchtalarm", "luchtwaarschuwing", "luchtpatroon", "luchtcyclus", "luchtperiode", "luchttrend", "luchtvariatie", "luchtimpact", "luchteffect", "luchtrisico", "luchtprojectie", "luchtstudie", "luchtanalyse", "luchtdata", "luchtgrafiek", "luchtkaart", "luchtontwikkeling", "luchtintensiteit", "luchtenergie", "luchtrotatie", "luchtkern", "luchtbaan", "luchtpad", "luchtmist", "luchtnevel", "luchtregen", "luchthagel", "luchtijs", "luchtwind", "luchtstorm", "luchtfront" ],
+      "size": 5
+    },
+    {
+      "title": "Droogte",
+      "words": [ "droogte", "hitte", "warmte", "regenloos", "watertekort", "grondwater", "verdamping", "hittegolf", "warmtefront", "warmtezone", "warmtepatroon", "warmtecyclus", "warmteperiode", "warmtetrend", "warmtevariatie", "warmteimpact", "warmteeffect", "warmterisico", "warmteprojectie", "warmtescenario", "warmtestudie", "warmteanalyse", "warmtedata", "warmtegrafiek", "warmtekaart", "warmtealarm", "warmtewaarschuwing", "warmtedreiging", "warmteontwikkeling", "warmteintensiteit", "warmteenergie", "warmterotatie", "warmtekern", "warmtebaan", "warmtepad", "warmtemist", "warmtenevel", "warmteregen", "warmtehagel", "warmteijs", "warmtewind" ],
+      "size": 5
+    },
+    {
+      "title": "Hittegolf",
+      "words": [ "hittegolf", "warmte", "hitte", "warmtegolf", "warmtefront", "warmtezone", "warmtepatroon", "warmtecyclus", "warmteperiode", "warmtetrend", "warmtevariatie", "warmteimpact", "warmteeffect", "warmterisico", "warmteprojectie", "warmtescenario", "warmtestudie", "warmteanalyse", "warmtedata", "warmtegrafiek", "warmtekaart", "warmtealarm", "warmtewaarschuwing", "warmtedreiging", "warmteontwikkeling", "warmteintensiteit", "warmteenergie", "warmterotatie", "warmtekern", "warmtebaan", "warmtepad", "warmtemist", "warmtenevel", "warmteregen", "warmtehagel", "warmteijs", "warmtewind", "warmtestorm", "warmtefrontlijn", "warmtecirculatie" ],
+      "size": 5
+    },
+    {
+      "title": "Koudegolf",
+      "words": [ "koudegolf", "kou", "vorst", "ijs", "ijskoud", "koufront", "kouzone", "koupatroon", "koucyclus", "kouperiode", "koutrend", "kouvariatie", "kouimpact", "koueffect", "kourisico", "kouprojectie", "kouscenario", "koustudie", "kouanalyse", "koudata", "kougrafiek", "koukaart", "koudalarm", "kouwaarschuwing", "koudedreiging", "kouontwikkeling", "kouintensiteit", "kouenergie", "kourotatie", "koukern", "koubaan", "koupad", "koumist", "kounevel", "kouregen", "kouhagel", "kouijs", "kouwind", "koustorm", "koufrontlijn", "koucirculatie" ],
+      "size": 5
+    },
+    {
+      "title": "Overstroming",
+      "words": [ "overstroming", "water", "regen", "stormvloed", "stormgolf", "stormzee", "stormregen", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen" ],
+      "size": 5
+    },
+    {
+      "title": "Lawines",
+      "words": [ "lawine", "sneeuw", "ijs", "berg", "helling", "sneeuwstorm", "sneeuwval", "sneeuwlaag", "sneeuwdek", "sneeuwzone", "sneeuwgordel", "sneeuwfront", "sneeuwontwikkeling", "sneeuwintensiteit", "sneeuwenergie", "sneeuwdruk", "sneeuwpatroon", "sneeuwcyclus", "sneeuwperiode", "sneeuwtrend", "sneeuwvariatie", "sneeuwimpact", "sneeuweffect", "sneeuwrisico", "sneeuwprojectie", "sneeuwscenario", "sneeuwstudie", "sneeuwanalyse", "sneeuwdata", "sneeuwgrafiek", "sneeuwkaart", "sneeuwalarm", "sneeuwwaarschuwing", "sneeuwdreiging", "sneeuwrotatie", "sneeuwkern", "sneeuwbaan", "sneeuwpad", "sneeuwmist", "sneeuwnevel", "sneeuwregen" ],
+      "size": 5
+    },
+    {
+      "title": "Modderstromen",
+      "words": [ "modderstroom", "aardverschuiving", "regen", "storm", "overstroming", "grond", "helling", "erosie", "water", "modder", "modderzone", "moddergordel", "modderfront", "modderlijn", "moddergebied", "modderontwikkeling", "modderintensiteit", "modderenergie", "modderdruk", "modderpatroon", "moddercyclus", "modderperiode", "moddertrend", "moddervariatie", "modderimpact", "moddereffect", "modderrisico", "modderprojectie", "modderscenario", "modderstudie", "modderanalyse", "modderdata", "moddergrafiek", "modderkaart", "modderalarm", "modderwaarschuwing", "modderdreiging", "modderrotatie", "modderkern", "modderbaan", "modderpad" ],
+      "size": 5
+    },
+    {
+      "title": "Zandstormen",
+      "words": [ "zandstorm", "stofstorm", "storm", "wind", "droogte", "woestijn", "zand", "stof", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen" ],
+      "size": 5
+    },
+    {
+      "title": "Stofstormen",
+      "words": [ "stofstorm", "zandstorm", "storm", "wind", "droogte", "woestijn", "stof", "zand", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie", "stormimpact", "stormeffect", "stormrisico", "stormprojectie", "stormscenario", "stormstudie", "stormanalyse", "stormdata", "stormgrafiek", "stormkaart", "stormalarm", "stormwaarschuwing", "stormdreiging", "stormrotatie", "stormkern", "stormoog", "stormbaan", "stormpad", "stormmist", "stormnevel", "stormregen" ],
+      "size": 5
+    },
+
+    {
+      "title": "Weerextremen",
+      "words": [ "extreem", "storm", "orkaan", "tornado", "tyfoon", "cycloon", "hittegolf", "koudegolf", "droogte", "overstroming", "lawine", "modderstroom", "zandstorm", "stofstorm", "ijsstorm", "regenstorm", "hagelstorm", "miststorm", "sneeuwstorm", "ijsregen", "ijzel", "onweer", "bliksem", "donder", "stormvloed", "stormgolf", "stormzee", "stormregen", "stormfront", "stormlijn", "stormzone", "stormgebied", "stormontwikkeling", "stormintensiteit", "stormenergie", "stormdruk", "stormpatroon", "stormcyclus", "stormperiode", "stormtrend", "stormvariatie" ],
+      "size": 5
+    },
+    {
+      "title": "Weerpatronen",
+      "words": [ "weerpatroon", "stormpatroon", "regenpatroon", "hagelpatroon", "sneeuwpatroon", "mistpatroon", "nevelpatroon", "windpatroon", "drukpatroon", "vochtpatroon", "warmtepatroon", "koupatroon", "ijspatroon", "zonpatroon", "luchtpatroon", "klimaatpatroon", "cycloonpatroon", "tyfoonpatroon", "orkaanpatroon", "tornadopatronen", "zandstormpatroon", "stofstormpatroon", "smogpatroon", "droogtepatroon", "hittepatroon", "koupatroon", "regenpatroon", "hagelpatroon", "sneeuwpatroon", "mistpatroon", "nevelpatroon", "windpatroon", "drukpatroon", "vochtpatroon", "warmtepatroon", "koupatroon", "ijspatroon", "zonpatroon", "luchtpatroon", "klimaatpatroon", "cycloonpatroon" ],
+      "size": 5
+    },
+    {
+      "title": "Weercycli",
+      "words": [ "weercyclus", "stormcyclus", "regenperiode", "hagelcyclus", "sneeuwcyclus", "mistcyclus", "nevelcyclus", "windcyclus", "drukcyclus", "vochtcyclus", "warmtecyclus", "koucyclus", "ijscyclus", "zoncyclus", "luchtcyclus", "klimaatcyclus", "cyclooncyclus", "tyfooncyclus", "orkaancyclus", "tornadocyclus", "zandstormcyclus", "stofstormcyclus", "smogcyclus", "droogtecyclus", "hittecyclus", "koucyclus", "regenperiode", "hagelcyclus", "sneeuwcyclus", "mistcyclus", "nevelcyclus", "windcyclus", "drukcyclus", "vochtcyclus", "warmtecyclus", "koucyclus", "ijscyclus", "zoncyclus", "luchtcyclus", "klimaatcyclus", "cyclooncyclus" ],
+      "size": 5
+    },
+    {
+      "title": "Weerenergie",
+      "words": [ "energie", "warmte", "kou", "stormenergie", "windenergie", "zonenergie", "regenenergie", "hagelenergie", "sneeuwenergie", "mistenergie", "nevelenergie", "ijsenergie", "drukenergie", "vochtenergie", "cycloonenergie", "tyfoonenergie", "orkaanenergie", "tornadoenergie", "zandstormenergie", "stofstormenergie", "smogenergie", "droogteenergie", "hitteenergie", "kouenergie", "regenenergie", "hagelenergie", "sneeuwenergie", "mistenergie", "nevelenergie", "ijsenergie", "drukenergie", "vochtenergie", "warmteenergie", "kouenergie", "zonenergie", "luchtenergie", "klimaatenergie", "stormenergie", "windenergie", "regenenergie", "hagelenergie" ],
+      "size": 5
+    },
+    {
+      "title": "Weerimpact",
+      "words": [ "impact", "effect", "risico", "stormimpact", "regenimpact", "hagelimpact", "sneeuwimpact", "mistimpact", "nevelimpact", "ijsimpact", "drukimpact", "vochtimpact", "warmteimpact", "kouimpact", "zonimpact", "luchtimpact", "klimaatimpact", "cycloonimpact", "tyfoonimpact", "orkaanimpact", "tornadoimpact", "zandstormimpact", "stofstormimpact", "smogimpact", "droogteimpact", "hitteimpact", "kouimpact", "regenimpact", "hagelimpact", "sneeuwimpact", "mistimpact", "nevelimpact", "ijsimpact", "drukimpact", "vochtimpact", "warmteimpact", "kouimpact", "zonimpact", "luchtimpact", "klimaatimpact", "stormimpact" ],
+      "size": 5
+    },
+    {
+      "title": "Weerdata",
+      "words": [ "data", "grafiek", "kaart", "analyse", "studie", "onderzoek", "rapport", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerstudie", "weeronderzoek", "weerrapport", "weersignaal", "weersymbool", "weersysteem", "weersimulatie" ],
+      "size": 5
+    },
+    {
+      "title": "Weeronderzoek",
+      "words": [ "onderzoek", "studie", "analyse", "rapport", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerstudie", "weeronderzoek", "weerrapport", "weersignaal", "weersymbool", "weersysteem", "weersimulatie", "weerscenario", "weersignaal", "weersignaal" ],
+      "size": 5
+    },
+    {
+      "title": "Weerwaarneming",
+      "words": [ "waarneming", "observatie", "meting", "weerstation", "thermometer", "barometer", "hygrometer", "anemometer", "sensor", "data", "grafiek", "kaart", "analyse", "studie", "onderzoek", "rapport", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart" ],
+      "size": 5
+    },
+    {
+      "title": "Weerhistorie",
+      "words": [ "historie", "archief", "data", "grafiek", "kaart", "analyse", "studie", "onderzoek", "rapport", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerstudie", "weeronderzoek", "weerrapport", "weersignaal", "weersymbool", "weersysteem" ],
+      "size": 5
+    },
+    {
+      "title": "Weerstatistiek",
+      "words": [ "statistiek", "data", "grafiek", "kaart", "analyse", "studie", "onderzoek", "rapport", "weermodel", "weersimulatie", "weerscenario", "weersysteem", "weercyclus", "weertrend", "weervariatie", "weereffect", "weerimpact", "weerrisico", "weervoorsp", "weerproject", "weersignaal", "weeralarm", "weerwaarschuwing", "weerontwikkeling", "weerintensiteit", "weerenergie", "weerrotatie", "weerkern", "weerbaan", "weerpad", "weergrafiek", "weerkaart", "weerdata", "weeranalyse", "weerstudie", "weeronderzoek", "weerrapport", "weersignaal", "weersymbool", "weersysteem", "weersimulatie" ],
+      "size": 5
+    }
+  ]
+}

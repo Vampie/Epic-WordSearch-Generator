@@ -1,0 +1,135 @@
+{
+  "title": "Alfabet",
+  "puzzles": [
+    {
+      "title": "Puzzel A",
+      "words": [ "aagt", "aalt", "aamt", "aard", "aars", "abel", "abri", "accu", "acht", "acid", "acme", "acne", "acre", "acta", "adam", "adat", "adel", "adem", "ader", "afro", "agio", "ahob", "ahoi", "ahum", "aids", "aker", "akst", "akte", "albe", "alfa", "alge", "alia", "alla", "alle", "allo", "alma", "alom", "alto", "alzo", "amai", "ambo" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel B",
+      "words": [ "baai", "baak", "baal", "baan", "baar", "baas", "baat", "baba", "babe", "babi", "babs", "baby", "back", "baco", "baht", "balg", "balk", "bama", "bami", "band", "bang", "bank", "bara", "bard", "bark", "bars", "base", "bask", "bast", "bate", "bats", "baud", "beat", "beau", "bede", "beek", "been", "beer", "bees", "beet", "beha" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel C",
+      "words": [ "cafe", "cake", "camp", "cant", "cape", "capo", "cara", "card", "case", "cash", "cast", "cava", "ceel", "cent", "chai", "chat", "chef", "chet", "chic", "chip", "ciao", "cier", "cite", "cito", "city", "clan", "clip", "clou", "club", "coat", "coax", "coca", "coco", "cocu", "coda", "code", "coil", "coke", "cola", "colt", "coma" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel D",
+      "words": [ "daad", "daar", "daas", "dada", "daim", "dame", "damp", "dank", "dans", "darm", "dart", "data", "date", "dato", "dauw", "deal", "deck", "deed", "deeg", "deel", "deuk", "deur", "deze", "dief", "diep", "dier", "dies", "dijk", "ding", "dino", "dirk", "disk", "dito", "diva", "dixi", "djak", "doch", "docu", "dode", "dodo", "doeg" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel E",
+      "words": [ "ebbe", "ebit", "echo", "echt", "ecru", "eddy", "edel", "eden", "edik", "eega", "eelt", "eend", "eens", "eest", "eeuw", "egel", "egge", "eind", "eins", "eken", "eker", "elan", "elco", "elft", "elke", "elks", "emir", "emoe", "ende", "enig", "enne", "epos", "eppe", "eraf", "eren", "ergo", "erin", "erna", "erom", "erop", "eros" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel F",
+      "words": [ "faal", "faam", "faas", "fade", "fado", "fair", "fake", "farm", "faro", "fase", "fata", "fats", "faun", "feil", "feit", "fels", "ferm", "feta", "feut", "fiat", "fier", "fijn", "fijt", "fiks", "file", "film", "fint", "firn", "fits", "fixe", "flab", "flan", "flap", "flat", "fles", "flex", "flik", "flip", "flop", "flor", "flos" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel G",
+      "words": [ "gaaf", "gaai", "gaal", "gaan", "gaap", "gaar", "gaas", "gade", "gaga", "gage", "gala", "galg", "galm", "game", "gang", "gans", "gard", "garf", "gast", "gate", "gauw", "gave", "geco", "geel", "geen", "geep", "geer", "geil", "gein", "geit", "geld", "gelt", "gems", "gene", "gent", "germ", "gers", "gesp", "geul", "geur", "geus" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel H",
+      "words": [ "haaf", "haag", "haai", "haak", "haal", "haam", "haan", "haar", "haas", "haat", "hack", "hadj", "haft", "haha", "haio", "half", "hall", "halm", "halo", "hals", "halt", "hand", "hang", "hank", "hans", "hard", "hare", "hark", "harp", "hars", "hart", "hash", "hasj", "hauw", "have", "havo", "heat", "hebe", "hebi", "heef", "heek" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel I",
+      "words": [ "iaen", "ibis", "icon", "idee", "idem", "iets", "iglo", "ikke", "imam", "imme", "inch", "inco", "indo", "info", "inkt", "inox", "iris", "isme", "item" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel J",
+      "words": [ "jaap", "jaar", "jack", "jade", "jawl", "jazz", "jeep", "jein", "jeuk", "jive", "joch", "jock", "joeg", "joep", "joet", "jojo", "joke", "jong", "jonk", "jood", "jool", "joon", "joop", "jota", "jour", "jouw", "judo", "juli", "juni", "junk", "jura", "jurk", "jury", "jute", "juut", "jazz", "joke", "jong", "judo", "juni", "jury" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel K",
+      "words": [ "kaag", "kaai", "kaak", "kaal", "kaam", "kaan", "kaap", "kaar", "kaas", "kade", "kadi", "kaft", "kaki", "kalf", "kali", "kalk", "kalm", "kamp", "kano", "kans", "kant", "kapo", "karn", "kart", "kast", "kauw", "keef", "keek", "keel", "keen", "keep", "keer", "kees", "keet", "kelk", "kelp", "kemp", "kerf", "kerk", "kern", "kers" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel L",
+      "words": [ "laaf", "laag", "laai", "laan", "laar", "laas", "laat", "labo", "lach", "lade", "lady", "lage", "laks", "lala", "lama", "lamp", "land", "lang", "lans", "larf", "lark", "last", "lauw", "lava", "lede", "leed", "leeg", "leek", "leem", "leen", "leep", "leer", "leet", "leis", "leng", "lens", "lidl", "lied", "lief", "liep", "lier", "lies" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel M",
+      "words": [ "maag", "maal", "maan", "maar", "maas", "maat", "mach", "made", "mail", "mais", "make", "maki", "mall", "malm", "mals", "mama", "mams", "mana", "mand", "mani", "mank", "mans", "mara", "marc", "mare", "mark", "mars", "mast", "mata", "mate", "mate", "mavo", "maxi", "mayo", "mede", "meed", "meel", "meer", "mees", "meet", "meid", "meis" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel N",
+      "words": [ "naad", "naaf", "naam", "naan", "naar", "nabi", "nada", "naft", "naja", "name", "napi", "nasi", "nauw", "neef", "neeg", "neen", "neep", "neer", "neet", "neon", "nerd", "nerf", "nero", "nest", "neus", "neut", "nick", "nier", "nies", "niet", "nijd", "niks", "nimf", "nipt", "nixe", "njet", "noch", "node", "noen", "noes", "noga", "none" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel O",
+      "words": [ "oase", "ober", "obia", "obus", "oeps", "ogen", "oker", "okra", "olie", "olim", "omen", "omer", "onaf", "onus", "onyx", "onze", "ooit", "oord", "oost", "open", "opus", "orde", "ordi", "orka", "orni", "oryx", "oude", "ouwe", "ouzo", "oven", "over", "oxer", "ozon", "ogen", "olie", "open", "oord", "oost", "oude", "oven", "over", "opus" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel P",
+      "words": [ "paal", "paan", "paap", "paar", "paas", "pabo", "pack", "paco", "pact", "page", "pair", "pais", "palm", "pand", "pang", "papa", "paps", "para", "pari", "park", "pars", "part", "pass", "pate", "pats", "pauk", "paus", "pauw", "pech", "peda", "pede", "pedo", "peel", "peen", "peer", "pees", "peet", "peil", "peis", "pels", "pene", "pens" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel Q",
+      "words": [ "quad", "quiz", "quar", "quat", "quay", "quod", "quip", "ques", "quik", "quim", "quop", "quos", "quar", "quak", "quaf", "quag", "quar", "quay", "quep", "quex", "quib", "quic", "quie", "quik", "quim", "quin", "quip", "quit", "quiz", "quod", "quop", "quos", "quar", "quay", "quep", "quex", "quib", "quic", "quie", "quik", "quim" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel R",
+      "words": [ "raad", "raaf", "raai", "raak", "raam", "raap", "raar", "raas", "raat", "race", "rack", "racy", "raga", "rage", "raid", "rail", "raio", "rake", "raki", "raku", "ramp", "rand", "rang", "rani", "rank", "rans", "rape", "rara", "rasp", "rata", "rato", "rats", "rauw", "rave", "rede", "reed", "reef", "reeg", "reek", "reel", "reen", "reep" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel S",
+      "words": [ "saai", "saam", "sado", "safe", "saga", "sage", "sago", "sake", "saki", "sale", "sant", "sara", "sari", "sate", "saus", "sawa", "scan", "sein", "seks", "sekt", "sela", "sema", "sent", "sept", "sexy", "shag", "shit", "shop", "shot", "show", "sief", "sier", "sijp", "sijs", "sikh", "silo", "sima", "sint", "site", "sits", "sjah" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel T",
+      "words": [ "taai", "taak", "taal", "taan", "taco", "tact", "take", "taks", "talg", "talk", "tamp", "tand", "tang", "tank", "tape", "taps", "tast", "tata", "taxi", "team", "teef", "teek", "teem", "teen", "teer", "teil", "telg", "tent", "term", "terp", "test", "tets", "teug", "teut", "thai", "thee", "thio", "tien", "tier", "tiet", "tijd" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel U",
+      "words": [ "ugli", "uier", "uiig", "unie", "unit", "uren", "urne", "uwen", "uwer", "uitd", "uitg", "uitk", "uitl", "uitm", "uitp", "uits", "uitv", "uitw", "uitz", "ultr", "ulna", "ulmo", "ulva", "umla", "umra", "unif", "unio", "univ", "upda", "upgr", "upse", "upto", "urbe", "urga", "uric", "urii", "urla", "urna", "uroc", "uruk", "urva", "usag" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel V",
+      "words": [ "vaag", "vaak", "vaal", "vaam", "vaan", "vaar", "vaas", "vaat", "vair", "vake", "vale", "valk", "vals", "vamp", "vang", "vast", "vavo", "veeg", "veel", "veem", "veen", "veer", "vega", "veil", "veld", "vele", "velg", "velo", "vent", "verf", "vers", "vest", "vete", "veto", "vide", "vief", "viel", "vier", "vies", "view", "vijf" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel W",
+      "words": [ "waag", "waak", "waal", "waan", "waar", "waas", "wade", "wadi", "wake", "walg", "walk", "walm", "wals", "wand", "wang", "want", "ware", "warm", "wars", "wart", "wasi", "watt", "wauw", "wave", "weck", "wede", "weed", "week", "weel", "ween", "weer", "wees", "weet", "weit", "welk", "welp", "wenk", "wens", "werd", "werf", "werk", "wesp" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel X",
+      "words": [ "xeno", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas", "xray", "xtra", "xyle", "xyst", "xant", "xmas" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel Y",
+      "words": [ "yang", "yank", "yard", "yaws", "yell", "yeti", "yips", "yoga", "yogi", "yoni", "yuan", "yuca", "yuko", "yang", "yank", "yard", "yaws", "yell", "yeti", "yips", "yoga", "yogi", "yoni", "yuan", "yuca", "yuko", "yang", "yank", "yard", "yaws", "yell", "yeti", "yips", "yoga", "yogi", "yoni", "yuan", "yuca", "yuko", "yang", "yank" ],
+      "size": 10
+    },
+    {
+      "title": "Puzzel Z",
+      "words": [ "zaad", "zaag", "zaak", "zaal", "zaan", "zalf", "zalm", "zand", "zang", "zate", "zede", "zeef", "zeeg", "zeek", "zeel", "zeem", "zeen", "zeep", "zeer", "zeet", "zege", "zeik", "zeil", "zeis", "zelf", "zeng", "zerk", "zero", "zerp", "zeug", "zeur", "zich", "ziek", "ziel", "zien", "zier", "zift", "zijl", "zijn", "zijp", "zilt" ],
+      "size": 10
+    }
+  ]
+}
