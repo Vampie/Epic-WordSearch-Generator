@@ -79,6 +79,14 @@ if __name__ == "__main__":
         logging.error("Failed to read input file: %s", e)
         sys.exit(1)
 
+    # Base name shared by every puzzle from this file: the JSON's own
+    # "title" if set, otherwise the input filename.
+    book_name = (
+        data.get("title", os.path.splitext(os.path.basename(input_path))[0])
+        .replace(" ", "_")
+        .lower()
+    )
+
     for j, item in enumerate(data["puzzles"]):
 
         # default size
@@ -120,14 +128,14 @@ if __name__ == "__main__":
         # Get highlights for the solution
         highlights = puzzle.get_highlights()
 
-        puzzle_base_name = item["title"].lower().replace(" ", "_")
-        wanted_outputs = [("wordsearch", "pdf")]
+        puzzle_doc_type = item["title"].lower().replace(" ", "_")
+        wanted_outputs = [(puzzle_doc_type, "pdf")]
         if args.docx:
-            wanted_outputs.append(("wordsearch", "docx"))
-        suffix = resolve_output_suffix(args.output, puzzle_base_name, wanted_outputs, force=args.force)
+            wanted_outputs.append((puzzle_doc_type, "docx"))
+        suffix = resolve_output_suffix(args.output, book_name, wanted_outputs, force=args.force)
 
         # Save PDF with grid and solution (always generated)
-        output_pdf = output_filename(puzzle_base_name, "wordsearch", "pdf", suffix)
+        output_pdf = output_filename(book_name, puzzle_doc_type, "pdf", suffix)
         output_pdf = os.path.join(args.output, output_pdf)
         pdf_render.render_wordsearch_pdf(
             output_pdf, item["title"], puzzle.grid, puzzle.words, highlights, None
@@ -135,7 +143,7 @@ if __name__ == "__main__":
 
         if args.docx:
             # Save DOCX with grid and solution
-            output_docx = output_filename(puzzle_base_name, "wordsearch", "docx", suffix)
+            output_docx = output_filename(book_name, puzzle_doc_type, "docx", suffix)
             output_docx = os.path.join(args.output, output_docx)
             docx_export.save_wordsearch_to_docx(
                 output_docx, item["title"], puzzle.grid, puzzle.words, highlights

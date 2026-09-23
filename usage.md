@@ -73,10 +73,14 @@ python -m scripts.generate_ws_page data/input_page.json output/
 }
 ```
 
-**Output:** one `<title>_wordsearch.pdf` file per puzzle in the output
-folder (plus a matching `.docx` when `--docx` is passed), each including
-the solution. Re-running with the same titles adds `_1`, `_2`, ... instead
-of overwriting previous files.
+**Output:** one `<book_name>_<puzzle_title>.pdf` file per puzzle in the
+output folder (plus a matching `.docx` when `--docx` is passed), each
+including the solution. `<book_name>` is the JSON's root `title` if set,
+otherwise the input filename — e.g. a file with `"title": "Vierletter
+Woordzoeker"` and puzzles titled "Puzzel 1", "Puzzel 2" produces
+`vierletter_woordzoeker_puzzel_1.pdf`, `vierletter_woordzoeker_puzzel_2.pdf`,
+etc. Re-running with the same names adds `_1`, `_2`, ... instead of
+overwriting previous files.
 
 ---
 
