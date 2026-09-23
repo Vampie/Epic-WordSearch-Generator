@@ -245,8 +245,9 @@ def assemble_book_pdf(
             about_content=about_content,
         )
 
-        # Track current page number (intro has 4 pages)
-        current_page = 5
+        # Track current page number (intro is now just the title page - the
+        # blank/how-to-solve/about pages are disabled, see intro/pages.py)
+        current_page = 2
 
         # --- Puzzles: one per page ---
         for idx, (title, grid, words) in enumerate(puzzles):

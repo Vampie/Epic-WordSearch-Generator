@@ -18,7 +18,14 @@ def create_blank_page(output_pdf):
 
 
 def create_title_page(output_pdf, puzzle_name, puzzle_num=80, about_content=None):
-    """Creates a complete 3-page intro: blank + title + instructions."""
+    """
+    Creates the title page.
+
+    The "HOW TO SOLVE" and "ABOUT THIS BOOK" pages that used to follow are
+    currently disabled (commented out below, not deleted) at the user's
+    request - re-enable by uncommenting and moving the showPage()/save()
+    calls back down.
+    """
     page_width, page_height = letter
     c = canvas.Canvas(output_pdf, pagesize=letter)
     
@@ -52,99 +59,100 @@ def create_title_page(output_pdf, puzzle_name, puzzle_num=80, about_content=None
     c.drawCentredString(page_width / 2, page_height * 0.1, author_name)
     
     c.showPage()
-    
-    # === PAGE 3: INSTRUCTIONS + ABOUT - LEFT ALIGNED ===
-    # Instructions title
-    c.setFont("Helvetica-Bold", 20)
-    c.drawString(1.5*inch, page_height * 0.85, "HOW TO SOLVE")
-    
-    # Instructions list
-    c.setFont("Helvetica", body_font_size)
-    y_pos = page_height * 0.75
-    instructions = [
-        "1. Read the themed word list below the puzzle",
-        "2. Find where each word fits in the grid", 
-        "3. Write letters in the squares using pen or pencil",
-        "4. Check solutions at the back if needed"
-    ]
-    
-    for instr in instructions:
-        c.drawString(1.5*inch, y_pos, instr)
-        y_pos -= 0.4*inch
-    
-    # Large print note
-    y_pos -= 0.2*inch
-    c.setFont("Helvetica-Bold", body_font_size)
-    c.drawString(1.5*inch, y_pos, "Large print design for comfortable solving!")
-    
-    c.showPage()
-    
-    # === PAGE 4: ABOUT THIS BOOK (last before puzzles) ===
-    c.setFont("Helvetica-Bold", 20)
-    c.drawString(1.5*inch, page_height * 0.85, "ABOUT THIS BOOK")
-    
-    c.setFont("Helvetica", body_font_size)
-    y_pos = page_height * 0.75
-
-    # About text
-    about_text = [
-        "Discover 80 themed word search puzzles"
-    ]
-    # append additional about content if provided
-    if about_content:
-        about_text = [
-            f"Discover 80 themed word search puzzles featuring:",
-        ]
-        # Group about_content items in threes and append each group as a single string
-        for i in range(0, len(about_content), 3):
-            group = about_content[i:i+3]
-            line = "  ".join(f"• {item}" for item in group)
-            about_text.append(line)
-        
-
-
-    # continue about text
-    for line in about_text:
-        c.drawString(1.5*inch, y_pos, line)
-        y_pos -= 0.35*inch
-    
-    # Benefits
-    y_pos -= 0.2*inch
-    c.setFont("Helvetica-Bold", body_font_size)
-    c.drawString(1.5*inch, y_pos, "Perfect for:")
-    y_pos -= 0.3*inch
-    
-    benefits = [
-        "• Brain training & relaxation",
-        "• Seniors & adults", 
-        "• Vocabulary building",
-        "• Travel, gifts, or personal enjoyment"
-    ]
-    
-    c.setFont("Helvetica", body_font_size)
-    for benefit in benefits:
-        c.drawString(1.5*inch, y_pos, benefit)
-        y_pos -= 0.3*inch
-    
-    c.showPage()
     c.save()
 
-
+    # # === PAGE 3: INSTRUCTIONS + ABOUT - LEFT ALIGNED ===
+    # # Instructions title
+    # c.setFont("Helvetica-Bold", 20)
+    # c.drawString(1.5*inch, page_height * 0.85, "HOW TO SOLVE")
+    #
+    # # Instructions list
+    # c.setFont("Helvetica", body_font_size)
+    # y_pos = page_height * 0.75
+    # instructions = [
+    #     "1. Read the themed word list below the puzzle",
+    #     "2. Find where each word fits in the grid", 
+    #     "3. Write letters in the squares using pen or pencil",
+    #     "4. Check solutions at the back if needed"
+    # ]
+    #
+    # for instr in instructions:
+    #     c.drawString(1.5*inch, y_pos, instr)
+    #     y_pos -= 0.4*inch
+    #
+    # # Large print note
+    # y_pos -= 0.2*inch
+    # c.setFont("Helvetica-Bold", body_font_size)
+    # c.drawString(1.5*inch, y_pos, "Large print design for comfortable solving!")
+    #
+    # c.showPage()
+    #
+    # # === PAGE 4: ABOUT THIS BOOK (last before puzzles) ===
+    # c.setFont("Helvetica-Bold", 20)
+    # c.drawString(1.5*inch, page_height * 0.85, "ABOUT THIS BOOK")
+    #
+    # c.setFont("Helvetica", body_font_size)
+    # y_pos = page_height * 0.75
+    #
+    # # About text
+    # about_text = [
+    #     "Discover 80 themed word search puzzles"
+    # ]
+    # # append additional about content if provided
+    # if about_content:
+    #     about_text = [
+    #         f"Discover 80 themed word search puzzles featuring:",
+    #     ]
+    #     # Group about_content items in threes and append each group as a single string
+    #     for i in range(0, len(about_content), 3):
+    #         group = about_content[i:i+3]
+    #         line = "  ".join(f"• {item}" for item in group)
+    #         about_text.append(line)
+    #
+    #
+    #
+    # # continue about text
+    # for line in about_text:
+    #     c.drawString(1.5*inch, y_pos, line)
+    #     y_pos -= 0.35*inch
+    #
+    # # Benefits
+    # y_pos -= 0.2*inch
+    # c.setFont("Helvetica-Bold", body_font_size)
+    # c.drawString(1.5*inch, y_pos, "Perfect for:")
+    # y_pos -= 0.3*inch
+    #
+    # benefits = [
+    #     "• Brain training & relaxation",
+    #     "• Seniors & adults", 
+    #     "• Vocabulary building",
+    #     "• Travel, gifts, or personal enjoyment"
+    # ]
+    #
+    # c.setFont("Helvetica", body_font_size)
+    # for benefit in benefits:
+    #     c.drawString(1.5*inch, y_pos, benefit)
+    #     y_pos -= 0.3*inch
+    #
+    # c.showPage()
+    # c.save()
+    #
+    #
 def create_intro_pages(merger, tmpdir, puzzle_name, puzzle_count, about_content=None):
     """
-    Creates and appends COMPLETE intro pages (4 total):
-    - Blank page (p1)
-    - Title page (p2) 
-    - Instructions page (p3)
-    - About page (p4)
-    Then puzzle pages start on page 5 (recto).
+    Creates and appends the intro pages.
+
+    The blank first page is currently disabled (commented out below, not
+    deleted) at the user's request - probably wants a cover illustration
+    there instead. Only the title page is appended; puzzle pages then
+    start on page 2.
     """
-    # Blank page 1
-    blank_pdf = os.path.join(tmpdir, "blank.pdf")
-    create_blank_page(blank_pdf)
-    merger.append(blank_pdf)
-    
-    # Complete 3-page intro (title + instructions + about)
+    # # Blank page 1
+    # blank_pdf = os.path.join(tmpdir, "blank.pdf")
+    # create_blank_page(blank_pdf)
+    # merger.append(blank_pdf)
+
+    # Title page
     intro_pdf = os.path.join(tmpdir, "intro_complete.pdf")
     create_title_page(intro_pdf, puzzle_name, puzzle_count, about_content=about_content)
     merger.append(intro_pdf)
