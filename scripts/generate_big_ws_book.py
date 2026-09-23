@@ -147,6 +147,19 @@ if __name__ == "__main__":
             "suffix, and remove any previously generated numbered versions"
         ),
     )
+    parser.add_argument(
+        "--cover",
+        action="store_true",
+        help="also generate a cover image (off by default)",
+    )
+    parser.add_argument(
+        "--save-data",
+        action="store_true",
+        help=(
+            "also save the generated puzzles/solutions to a _data.json file, "
+            "so they can be reused later with -t puzzles (off by default)"
+        ),
+    )
 
     args = parser.parse_args()
 
@@ -168,7 +181,9 @@ if __name__ == "__main__":
         if args.name:
             puzzle_name = args.name
 
-        output_types = [("bigbook", "pdf"), ("cover", "png")]
+        output_types = [("bigbook", "pdf")]
+        if args.cover:
+            output_types.append(("cover", "png"))
         if args.html_description:
             output_types.append(("description", "html"))
         output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
@@ -198,7 +213,11 @@ if __name__ == "__main__":
         if args.name:
             puzzle_name = args.name
 
-        output_types = [("bigbook", "pdf"), ("cover", "png"), ("data", "json")]
+        output_types = [("bigbook", "pdf")]
+        if args.cover:
+            output_types.append(("cover", "png"))
+        if args.save_data:
+            output_types.append(("data", "json"))
         if args.html_description:
             output_types.append(("description", "html"))
         output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
@@ -256,35 +275,38 @@ if __name__ == "__main__":
 
         print(f"Successfully generated {len(puzzles)} puzzles")
 
-        # Save JSON with puzzles and solutions
-        data_json_path = os.path.join(
-            output_dir, output_filename(puzzle_name, "data", "json", output_suffix)
-        )
-        save_puzzle_data_to_json(
-            puzzles, solutions,
-            data_json_path,
-            puzzle_name,
-            cover_color,
-            content_descriptions
-        )
-        print(f"JSON saved: {data_json_path}")
+        # Save JSON with puzzles and solutions, if requested
+        if args.save_data:
+            data_json_path = os.path.join(
+                output_dir, output_filename(puzzle_name, "data", "json", output_suffix)
+            )
+            save_puzzle_data_to_json(
+                puzzles, solutions,
+                data_json_path,
+                puzzle_name,
+                cover_color,
+                content_descriptions
+            )
+            print(f"JSON saved: {data_json_path}")
 
     pdf_output_path = os.path.join(
         output_dir, output_filename(puzzle_name, "bigbook", "pdf", output_suffix)
     )
 
-    # generate the cover image in the output folder only for the first puzzle
-    cover_image_path = os.path.join(
-        output_dir, output_filename(puzzle_name, "cover", "png", output_suffix)
-    )
+    # generate the cover image in the output folder, if requested (only
+    # for the first puzzle)
+    if args.cover:
+        cover_image_path = os.path.join(
+            output_dir, output_filename(puzzle_name, "cover", "png", output_suffix)
+        )
 
-    cover_image.render_wordsearch_cover(
-        output_path=cover_image_path,
-        grid=puzzles[0][1],
-        highlights=solutions[0][2],
-        highlight_color=tuple(int(cover_color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)),  # convert hex to RGB
-    )
-    print(f"Cover image generated: {cover_image_path}")
+        cover_image.render_wordsearch_cover(
+            output_path=cover_image_path,
+            grid=puzzles[0][1],
+            highlights=solutions[0][2],
+            highlight_color=tuple(int(cover_color.lstrip('#')[i:i+2], 16) for i in (0, 2, 4)),  # convert hex to RGB
+        )
+        print(f"Cover image generated: {cover_image_path}")
 
     assemble_book_pdf(
         puzzles,

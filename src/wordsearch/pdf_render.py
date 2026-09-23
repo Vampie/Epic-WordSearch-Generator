@@ -16,7 +16,29 @@ from reportlab.platypus import (
     PageBreak,
 )
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfbase.pdfmetrics import stringWidth
 from wordsearch import direction_to_delta, HighlightStyle
+
+# Word-list font size range: the largest size in this range that still fits
+# the puzzle's longest word within a table column is picked automatically,
+# so short-word puzzles render bigger while long outlier words (e.g. Dutch
+# compound words) never overflow past their column.
+MAX_WORD_FONT_SIZE = 14
+MIN_WORD_FONT_SIZE = 8
+
+
+def _fit_word_font_size(words, available_width, font_name="Helvetica"):
+    """
+    Picks the largest font size (within MIN_WORD_FONT_SIZE..MAX_WORD_FONT_SIZE)
+    at which every word in `words` fits within `available_width`.
+    """
+    if not words:
+        return MAX_WORD_FONT_SIZE
+    longest = max(words, key=len)
+    for size in range(MAX_WORD_FONT_SIZE, MIN_WORD_FONT_SIZE - 1, -1):
+        if stringWidth(longest, font_name, size) <= available_width:
+            return size
+    return MIN_WORD_FONT_SIZE
 
 
 # pylint: disable=too-many-arguments,too-many-locals,too-many-statements,too-many-positional-arguments
@@ -66,12 +88,15 @@ def render_wordsearch_pdf(
     # cell_margin = 12  # 0.2 inch margin for table cells
 
     # --- Puzzle PDF ---
+    # Only bottomMargin is tightened here: the letter grid itself is drawn
+    # via a fixed-position canvas callback (draw_grid, below) anchored to
+    # the top of the page independently of these doc margins, so shrinking
+    # topMargin would push the word-list table up into the grid. Shrinking
+    # bottomMargin instead frees vertical room for the table without moving
+    # where it starts.
     doc = SimpleDocTemplate(
         puzzle_output,
         pagesize=A4,
-        leftMargin=page_margin,
-        rightMargin=page_margin,
-        topMargin=page_margin,
         bottomMargin=page_margin,
     )
     elements = []
@@ -106,6 +131,10 @@ def render_wordsearch_pdf(
         word_table_data.append(row)
     # Set column widths to spread the table across the page
     col_width = (page_width - 4 * page_margin) / num_columns
+    word_cell_padding = 6
+    word_font_size = _fit_word_font_size(
+        words_upper, col_width - 2 * word_cell_padding
+    )
     word_table = Table(
         word_table_data, colWidths=[col_width] * num_columns, hAlign="CENTER"
     )
@@ -113,9 +142,9 @@ def render_wordsearch_pdf(
         TableStyle(
             [
                 ("ALIGN", (0, 0), (-1, -1), "LEFT"),  # Center text in each cell
-                ("FONTSIZE", (0, 0), (-1, -1), 10),
-                ("LEFTPADDING", (0, 0), (-1, -1), 6),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("FONTSIZE", (0, 0), (-1, -1), word_font_size),
+                ("LEFTPADDING", (0, 0), (-1, -1), word_cell_padding),
+                ("RIGHTPADDING", (0, 0), (-1, -1), word_cell_padding),
             ]
         )
     )
@@ -149,8 +178,8 @@ def render_wordsearch_pdf(
                 canvas.drawCentredString(x, y, cell_letter.upper())
 
         # Draw page number if provided
+        canvas.setFont("Helvetica", 10)
         if page_num is not None:
-            canvas.setFont("Helvetica", 10)
             canvas.drawCentredString(
                 page_width / 2, 0.5 * 72, str(page_num)
             )  # 0.5 inch from bottom
@@ -285,14 +314,7 @@ def render_wordsearch_pdf(
             solution_dir = os.path.dirname(solution_output)
             if solution_dir:
                 os.makedirs(solution_dir, exist_ok=True)
-            doc_sol = SimpleDocTemplate(
-                solution_output,
-                pagesize=A4,
-                leftMargin=page_margin,
-                rightMargin=page_margin,
-                topMargin=page_margin,
-                bottomMargin=page_margin,
-            )
+            doc_sol = SimpleDocTemplate(solution_output, pagesize=A4)
             elements_sol.append(
                 Paragraph(f"{title.upper()} - Solution", small_title_style)
             )

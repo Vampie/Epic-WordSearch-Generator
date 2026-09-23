@@ -185,13 +185,15 @@ python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json outpu
 - `-t, --input-type` - Type of input file: 'wordlist' for puzzle definitions (generates new puzzles), 'puzzles' for previously generated puzzle data (reuses puzzles)
 - `-w, --words` - Default number of words per puzzle when not set per-puzzle via `count` (default: 20)
 - `-d, --html-description` - Generate an HTML file with the title and description of the book (default: False)
+- `--cover` - Also generate a cover image (off by default)
+- `--save-data` - Also save the generated puzzles/solutions to a `_data.json` file for later reuse with `-t puzzles` (off by default)
 - `-f, --force` - Overwrite the final book/cover/data/description files instead of adding a `_1`/`_2`/... suffix
 
 **Input Format:**
 
 Sample files with 20 puzzles each in the folder [`data/books/`](data/books/).
   
-Output: The large book will be saved as `output/<name>_bigbook.pdf`, plus a cover image and data JSON.
+Output: The large book will be saved as `output/<name>_bigbook.pdf`. Pass `--cover`/`--save-data` to also get a cover image and data JSON.
 
 ### Validation
 

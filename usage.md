@@ -144,6 +144,9 @@ python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json outpu
   lists) or `puzzles` (reuses previously generated puzzle data — see below)
 - `-d, --html-description` — also write a `<name>_description.html` blurb
   with the book's title and category preview
+- `--cover` — also generate a cover image (off by default)
+- `--save-data` — also save the generated puzzles/solutions to a
+  `<name>_data.json` file for later reuse with `-t puzzles` (off by default)
 - `-f, --force` — overwrite the final book/cover/data/description files
   and delete any previous `_1`/`_2`/... versions (all as one consistent set)
 
@@ -170,18 +173,20 @@ root can set a `color` (hex, used for the cover) and `catchphrase`:
 **Output** (all written to the output folder):
 
 - `<name>_bigbook.pdf` — the full book (variations, e.g. "Jungle Animals 1",
-  "Jungle Animals 2", ...)
+  "Jungle Animals 2", ...) — always generated
+- `<name>_cover.png` — a cover image built from the first puzzle — only
+  when `--cover` is passed
 - `<name>_data.json` — the generated puzzles/solutions, so the same exact
   puzzles can be reused later (see `-t puzzles` below) without re-rolling
-  the randomization
-- `<name>_cover.png` — a cover image built from the first puzzle
+  the randomization — only when `--save-data` is passed
 - `<name>_description.html` — only when `-d` is passed
 
 Re-running with the same `-n`/name never overwrites a previous run: all
 four files get the same `_1`, `_2`, ... suffix instead.
 
 **Reusing a previously generated book** (e.g. to regenerate the PDF after
-tweaking cover color or without re-randomizing puzzles):
+tweaking cover color or without re-randomizing puzzles) — requires having
+passed `--save-data` on the original run:
 
 ```bash
 python -m scripts.generate_big_ws_book output/animals_book_data.json output/ -t puzzles -n animals_book_v2
