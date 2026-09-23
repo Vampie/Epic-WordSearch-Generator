@@ -32,25 +32,30 @@ Pass `-f`/`--force` to skip the suffix and write the plain `<name>_<type>`
 files instead — any existing `_1`/`_2`/... numbered versions for that name
 are deleted first, so you're left with a single "final" set of files.
 
+**Input lookup:** all three generator scripts accept a bare filename (with
+or without `.json`, no path needed) for `input` — if it isn't an existing
+path, it's searched for recursively under `data/`. So
+`python -m scripts.generate_ws_book input_book output/` works from any
+directory, as long as `input_book.json` exists somewhere under `data/`.
+
 ---
 
 ## 1. Single puzzle pages — `generate_ws_page.py`
 
-For one-off pages, worksheets, or when you just want PDF/DOCX output per
-puzzle rather than a bound book.
+For one-off pages, worksheets, or when you just want per-puzzle output
+rather than a bound book. A PDF is always generated; DOCX is optional.
 
 ```bash
-python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf --docx
+python -m scripts.generate_ws_page data/input_page.json output/
 ```
 
 **Arguments:**
 
 - `input` (positional) — JSON file with puzzle definitions (see format below)
-- `-o, --output` — output folder (required if `--pdf` and/or `--docx` is used)
+- `output` (positional) — output folder
 - `-b, --basic` — restrict word placement to horizontal (left-to-right),
   vertical (top-to-bottom) and one diagonal direction only
-- `--pdf` — write a PDF per puzzle
-- `--docx` — write a DOCX per puzzle
+- `--docx` — also write a DOCX per puzzle (PDF is always written)
 - `-f, --force` — overwrite the final `<title>_wordsearch.<ext>` files and
   delete any previous `_1`/`_2`/... versions
 
@@ -68,9 +73,10 @@ python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf --docx
 }
 ```
 
-**Output:** one `<title>_wordsearch.pdf` and/or `.docx` file per puzzle in
-the output folder, each including the solution. Re-running with the same
-titles adds `_1`, `_2`, ... instead of overwriting previous files.
+**Output:** one `<title>_wordsearch.pdf` file per puzzle in the output
+folder (plus a matching `.docx` when `--docx` is passed), each including
+the solution. Re-running with the same titles adds `_1`, `_2`, ... instead
+of overwriting previous files.
 
 ---
 

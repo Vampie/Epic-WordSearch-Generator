@@ -21,6 +21,48 @@ from wordsearch import pdf_render
 _ORDINALS = {1: "1st", 2: "2nd", 3: "3rd", 4: "4th", 5: "5th", 6: "6th", 7: "7th", 8: "8th"}
 
 
+def find_json_in_data(filename, base_dir="data"):
+    """
+    Search for a JSON file named `filename` inside `base_dir` and its subfolders.
+
+    - `filename` may be given with or without the `.json` extension.
+    - Search is case-insensitive and returns the first exact filename match found.
+    - Returns an absolute path if found, otherwise returns None.
+    """
+    if not filename:
+        return None
+
+    name = filename
+    if name.lower().endswith(".json"):
+        name = name[:-5]
+    target_lower = (name + ".json").lower()
+
+    if not os.path.isdir(base_dir):
+        return None
+
+    for root, _, files in os.walk(base_dir):
+        for f in files:
+            if f.lower() == target_lower:
+                return os.path.abspath(os.path.join(root, f))
+
+    return None
+
+
+def resolve_input_path(input_arg, base_dir="data"):
+    """
+    Resolves a CLI input argument to an actual file path: if `input_arg`
+    already points to an existing file, it's returned as-is. Otherwise,
+    `find_json_in_data` is used to look it up (with or without a folder
+    prefix or `.json` extension) anywhere under `base_dir`. If nothing is
+    found, `input_arg` is returned unchanged so the caller's own
+    file-not-found handling kicks in.
+    """
+    if os.path.isfile(input_arg):
+        return input_arg
+    found = find_json_in_data(input_arg, base_dir=base_dir)
+    return found if found else input_arg
+
+
 def output_filename(base_name, doc_type, ext, suffix=None):
     """
     Builds a standardized "<base_name>_<doc_type>[_<suffix>].<ext>" filename,

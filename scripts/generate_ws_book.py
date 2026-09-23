@@ -18,6 +18,7 @@ from wordsearch.book_builder import (
     assemble_book_pdf,
     generate_single_puzzle,
     output_filename,
+    resolve_input_path,
     resolve_output_suffix,
 )
 
@@ -45,11 +46,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    # If the given input isn't an existing path, try to locate a JSON
+    # file with that name anywhere under data/.
+    input_path = resolve_input_path(args.input, base_dir="data")
+
     # Read input data
-    with open(args.input, "r", encoding="utf-8") as f:
+    with open(input_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    puzzle_name = data.get("title", os.path.splitext(os.path.basename(args.input))[0]).replace(" ", "_").lower()
+    puzzle_name = data.get("title", os.path.splitext(os.path.basename(input_path))[0]).replace(" ", "_").lower()
     if args.name:
         puzzle_name = args.name
 

@@ -79,7 +79,7 @@ pip install -e .
 Generate a sample puzzle page as PDF:
 
 ```bash
-python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf
+python -m scripts.generate_ws_page data/input_page.json output/
 ```
 
 Find your generated PDF in the `output/` folder.
@@ -115,17 +115,17 @@ The project includes three main scripts for different use cases:
 Generate individual puzzle pages with solutions.
 
 ```bash
-python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf
+python -m scripts.generate_ws_page data/input_page.json output/
 ```
 
 **Options:**
 
-- `input` - Input file, json format (required)
-
-- `-o, --output` - Output folder for generated files (required for PDF/DOCX)
+- `input` - Input file, json format (required). Can also be a bare name
+  (with or without `.json`) looked up under `data/`.
+- `output` - Output folder (required)
 - `-b, --basic` - Use basic directions only (horizontal left-to-right, vertical top-to-bottom, diagonal top-left to bottom-right)
-- `--pdf` - Generate PDF output
-- `--docx` - Generate DOCX output
+- `--docx` - Also generate DOCX output (a PDF is always generated)
+- `-f, --force` - Overwrite the final output files instead of adding a `_1`/`_2`/... suffix
 
 **Input JSON Format:**
 
@@ -150,45 +150,48 @@ Output: PDF and/or DOCX files will be saved in the specified `output/` folder.
 Generate a complete PDF book with title page, puzzles, and solutions section.
 
 ```bash
-python -m scripts.generate_ws_book data/input_book.json -o output/book.pdf --pdf
+python -m scripts.generate_ws_book data/input_book.json output/
 ```
 
 **Options:**
 
-- `input` - Input file, json format (required)
-- `output` - Output PDF file path (required)
-
+- `input` - Input file, json format (required). Can also be a bare name
+  (with or without `.json`) looked up under `data/`.
+- `output` - Output folder (required)
 - `-n, --name` - Name of the output book (without extension)
+- `-f, --force` - Overwrite the final `<name>_book.pdf` instead of adding a `_1`/`_2`/... suffix
 
 **Input Format:** Same as single page, with a book `title` at the root level.
 
 Sample file: [`data/input_book.json`](data/input_book.json)
   
-Output: The generated book will be saved as a PDF in the specified output path (e.g., `output/book.pdf`).
+Output: The generated book will be saved as `output/<name>_book.pdf`.
 
 ### 3. Generate Large Puzzle Books with Variations
 
 Generate a large puzzle book with multiple variations of each puzzle theme.
 
 ```bash
-python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json -o output/big_book.pdf -n 4 --pdf
+python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json output/
 ```
 
 **Options:**
 
-- `input` - Input file, json format (required)
-- `output` - Output PDF file path (required)
-
+- `input` - Input file, json format (required). Can also be a bare name
+  (with or without `.json`) looked up under `data/` and its subfolders.
+- `output` - Output folder (required)
 - `-n, --name` - Name of the output book (without extension)
 - `-c, --copies` - Number of copies per puzzle (default: 4)
 - `-t, --input-type` - Type of input file: 'wordlist' for puzzle definitions (generates new puzzles), 'puzzles' for previously generated puzzle data (reuses puzzles)
+- `-w, --words` - Default number of words per puzzle when not set per-puzzle via `count` (default: 20)
 - `-d, --html-description` - Generate an HTML file with the title and description of the book (default: False)
+- `-f, --force` - Overwrite the final book/cover/data/description files instead of adding a `_1`/`_2`/... suffix
 
 **Input Format:**
 
 Sample files with 20 puzzles each in the folder [`data/books/`](data/books/).
   
-Output: The large book will be saved as a PDF in the specified output path (e.g., `output/big_book.pdf`).
+Output: The large book will be saved as `output/<name>_book.pdf`, plus a cover image and data JSON.
 
 ### Validation
 

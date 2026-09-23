@@ -20,6 +20,7 @@ sys.path.insert(
 from wordsearch.book_builder import (
     generate_single_puzzle,
     output_filename,
+    resolve_input_path,
     resolve_output_suffix,
 )
 from wordsearch import docx_export
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     # parse arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="input file, json format")
-    parser.add_argument("-o", "--output", help="output folder")
+    parser.add_argument("output", help="output folder")
     parser.add_argument(
         "-b",
         "--basic",
@@ -52,8 +53,9 @@ if __name__ == "__main__":
             "diagonal from top left to bottom right"
         ),
     )
-    parser.add_argument("--pdf", action="store_true", help="generate PDF output")
-    parser.add_argument("--docx", action="store_true", help="generate DOCX output")
+    parser.add_argument(
+        "--docx", action="store_true", help="also generate DOCX output (PDF is always generated)"
+    )
     parser.add_argument(
         "-f",
         "--force",
@@ -65,10 +67,13 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
+    # If the given input isn't an existing path, try to locate a JSON file
+    # with that name anywhere under data/.
+    input_path = resolve_input_path(args.input, base_dir="data")
+
     # get input file data
-    input_file = os.path.join(os.getcwd(), args.input)
     try:
-        with open(input_file, "r", encoding="utf-8") as f:
+        with open(input_path, "r", encoding="utf-8") as f:
             data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError, OSError) as e:
         logging.error("Failed to read input file: %s", e)
@@ -108,7 +113,6 @@ if __name__ == "__main__":
                     verbose=True,
                 )
 
-
         if puzzle is None:
             logging.error("Failed to generate puzzle for %s", item["title"])
             continue
@@ -117,33 +121,22 @@ if __name__ == "__main__":
         highlights = puzzle.get_highlights()
 
         puzzle_base_name = item["title"].lower().replace(" ", "_")
-        wanted_outputs = []
+        wanted_outputs = [("wordsearch", "pdf")]
         if args.docx:
             wanted_outputs.append(("wordsearch", "docx"))
-        if args.pdf:
-            wanted_outputs.append(("wordsearch", "pdf"))
-        suffix = None
-        if wanted_outputs and args.output:
-            suffix = resolve_output_suffix(args.output, puzzle_base_name, wanted_outputs, force=args.force)
+        suffix = resolve_output_suffix(args.output, puzzle_base_name, wanted_outputs, force=args.force)
+
+        # Save PDF with grid and solution (always generated)
+        output_pdf = output_filename(puzzle_base_name, "wordsearch", "pdf", suffix)
+        output_pdf = os.path.join(args.output, output_pdf)
+        pdf_render.render_wordsearch_pdf(
+            output_pdf, item["title"], puzzle.grid, puzzle.words, highlights, None
+        )
 
         if args.docx:
-            if not args.output:
-                logging.error("Output folder must be specified for DOCX output")
-                continue
             # Save DOCX with grid and solution
             output_docx = output_filename(puzzle_base_name, "wordsearch", "docx", suffix)
             output_docx = os.path.join(args.output, output_docx)
             docx_export.save_wordsearch_to_docx(
                 output_docx, item["title"], puzzle.grid, puzzle.words, highlights
-            )
-
-        if args.pdf:
-            if not args.output:
-                logging.error("Output folder must be specified for PDF output")
-                continue
-            # Save PDF with grid and solution
-            output_pdf = output_filename(puzzle_base_name, "wordsearch", "pdf", suffix)
-            output_pdf = os.path.join(args.output, output_pdf)
-            pdf_render.render_wordsearch_pdf(
-                output_pdf, item["title"], puzzle.grid, puzzle.words, highlights, None
             )

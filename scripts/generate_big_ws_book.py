@@ -22,39 +22,13 @@ from wordsearch.book_builder import (
     assemble_book_pdf,
     generate_single_puzzle,
     output_filename,
+    resolve_input_path,
     resolve_output_suffix,
 )
 from wordsearch.html_export import generate_html_description
 
 # Safety cap on how many words a single puzzle may contain
 MAX_WORDS = 40
-
-
-def find_json_in_data(filename, base_dir="data"):
-    """
-    Search for a JSON file named `filename` inside `base_dir` and its subfolders.
-
-    - `filename` may be given with or without the `.json` extension.
-    - Search is case-insensitive and returns the first exact filename match found.
-    - Returns an absolute path if found, otherwise returns None.
-    """
-    if not filename:
-        return None
-
-    name = filename
-    if name.lower().endswith(".json"):
-        name = name[:-5]
-    target_lower = (name + ".json").lower()
-
-    if not os.path.isdir(base_dir):
-        return None
-
-    for root, _, files in os.walk(base_dir):
-        for f in files:
-            if f.lower() == target_lower:
-                return os.path.abspath(os.path.join(root, f))
-
-    return None
 
 
 def save_puzzle_data_to_json(
@@ -186,8 +160,9 @@ if __name__ == "__main__":
 
     if args.input_type == "puzzles":
         # Load previously generated puzzle data
-        print(f"Loading puzzle data from {args.input}...")
-        puzzles, solutions, puzzle_name, cover_color = load_puzzle_data_from_json(args.input)
+        input_path = resolve_input_path(args.input, base_dir="data")
+        print(f"Loading puzzle data from {input_path}...")
+        puzzles, solutions, puzzle_name, cover_color = load_puzzle_data_from_json(input_path)
 
         # Override puzzle name if specified
         if args.name:
@@ -199,7 +174,7 @@ if __name__ == "__main__":
         output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
 
         # get content descriptions from metadata if available
-        with open(args.input, "r", encoding="utf-8") as f:
+        with open(input_path, "r", encoding="utf-8") as f:
             puzzle_data = json.load(f)
             metadata = puzzle_data.get("metadata", {})
             content_descriptions = metadata.get("content_descriptions", [])
@@ -210,11 +185,7 @@ if __name__ == "__main__":
         # Generate new puzzles from word lists (original behavior)
         # If the given input isn't an existing path, try to locate a JSON
         # file with that name anywhere under data/.
-        input_path = args.input
-        if not os.path.isfile(input_path):
-            found = find_json_in_data(input_path, base_dir="data")
-            if found:
-                input_path = found
+        input_path = resolve_input_path(args.input, base_dir="data")
 
         with open(input_path, "r", encoding="utf-8") as f:
             data = json.load(f)
