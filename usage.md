@@ -20,6 +20,14 @@ All puzzle generation goes through [`src/wordsearch/book_builder.py`](src/wordse
 which is what keeps the three generator scripts thin and consistent with
 each other. You don't need to touch it directly to use the CLI.
 
+**Output naming:** every generated file follows the pattern
+`<name>_<type>.<ext>` (e.g. `animals_book.pdf`, `animals_cover.png`). If a
+file with that exact name already exists in the output folder, it is never
+overwritten — a numeric suffix is added instead (`animals_book_1.pdf`,
+`animals_book_2.pdf`, ...). When one run produces several related files
+(e.g. a big book's PDF, cover, data JSON, and description), they all share
+the same suffix, so a set from one run is easy to tell apart from another.
+
 ---
 
 ## 1. Single puzzle pages — `generate_ws_page.py`
@@ -55,7 +63,8 @@ python -m scripts.generate_ws_page data/input_page.json -o output/ --pdf --docx
 ```
 
 **Output:** one `<title>_wordsearch.pdf` and/or `.docx` file per puzzle in
-the output folder, each including the solution.
+the output folder, each including the solution. Re-running with the same
+titles adds `_1`, `_2`, ... instead of overwriting previous files.
 
 ---
 
@@ -145,8 +154,11 @@ root can set a `color` (hex, used for the cover) and `catchphrase`:
 - `<name>_data.json` — the generated puzzles/solutions, so the same exact
   puzzles can be reused later (see `-t puzzles` below) without re-rolling
   the randomization
-- `<name>_cover_grid.png` — a cover image built from the first puzzle
-- `<name>-description.html` — only when `-d` is passed
+- `<name>_cover.png` — a cover image built from the first puzzle
+- `<name>_description.html` — only when `-d` is passed
+
+Re-running with the same `-n`/name never overwrites a previous run: all
+four files get the same `_1`, `_2`, ... suffix instead.
 
 **Reusing a previously generated book** (e.g. to regenerate the PDF after
 tweaking cover color or without re-randomizing puzzles):

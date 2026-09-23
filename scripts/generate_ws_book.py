@@ -14,7 +14,12 @@ import argparse
 import json
 import os
 
-from wordsearch.book_builder import assemble_book_pdf, generate_single_puzzle
+from wordsearch.book_builder import (
+    assemble_book_pdf,
+    generate_single_puzzle,
+    output_filename,
+    reserve_output_suffix,
+)
 
 if __name__ == "__main__":
 
@@ -38,7 +43,10 @@ if __name__ == "__main__":
     puzzle_name = data.get("title", os.path.splitext(os.path.basename(args.input))[0]).replace(" ", "_").lower()
     if args.name:
         puzzle_name = args.name
-    args.output = os.path.join(args.output, f"{puzzle_name}_book.pdf")
+
+    output_dir = args.output
+    suffix = reserve_output_suffix(output_dir, puzzle_name, [("book", "pdf")])
+    args.output = os.path.join(output_dir, output_filename(puzzle_name, "book", "pdf", suffix))
 
     puzzles = []
     solutions = []

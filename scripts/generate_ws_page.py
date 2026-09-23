@@ -17,7 +17,11 @@ sys.path.insert(
 )
 
 # pylint: disable=wrong-import-position,import-error
-from wordsearch.book_builder import generate_single_puzzle
+from wordsearch.book_builder import (
+    generate_single_puzzle,
+    output_filename,
+    reserve_output_suffix,
+)
 from wordsearch import docx_export
 from wordsearch import pdf_render
 
@@ -103,12 +107,22 @@ if __name__ == "__main__":
         # Get highlights for the solution
         highlights = puzzle.get_highlights()
 
+        puzzle_base_name = item["title"].lower().replace(" ", "_")
+        wanted_outputs = []
+        if args.docx:
+            wanted_outputs.append(("wordsearch", "docx"))
+        if args.pdf:
+            wanted_outputs.append(("wordsearch", "pdf"))
+        suffix = None
+        if wanted_outputs and args.output:
+            suffix = reserve_output_suffix(args.output, puzzle_base_name, wanted_outputs)
+
         if args.docx:
             if not args.output:
                 logging.error("Output folder must be specified for DOCX output")
                 continue
             # Save DOCX with grid and solution
-            output_docx = f"{item['title'].lower().replace(' ', '_')}_wordsearch.docx"
+            output_docx = output_filename(puzzle_base_name, "wordsearch", "docx", suffix)
             output_docx = os.path.join(args.output, output_docx)
             docx_export.save_wordsearch_to_docx(
                 output_docx, item["title"], puzzle.grid, puzzle.words, highlights
@@ -119,7 +133,7 @@ if __name__ == "__main__":
                 logging.error("Output folder must be specified for PDF output")
                 continue
             # Save PDF with grid and solution
-            output_pdf = f"{item['title'].lower().replace(' ', '_')}_wordsearch.pdf"
+            output_pdf = output_filename(puzzle_base_name, "wordsearch", "pdf", suffix)
             output_pdf = os.path.join(args.output, output_pdf)
             pdf_render.render_wordsearch_pdf(
                 output_pdf, item["title"], puzzle.grid, puzzle.words, highlights, None

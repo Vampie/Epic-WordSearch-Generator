@@ -21,6 +21,38 @@ from wordsearch import pdf_render
 _ORDINALS = {1: "1st", 2: "2nd", 3: "3rd", 4: "4th", 5: "5th", 6: "6th", 7: "7th", 8: "8th"}
 
 
+def output_filename(base_name, doc_type, ext, suffix=None):
+    """
+    Builds a standardized "<base_name>_<doc_type>[_<suffix>].<ext>" filename,
+    e.g. "animals_book.pdf" or "animals_book_2.pdf".
+    """
+    stem = f"{base_name}_{doc_type}"
+    if suffix is not None:
+        stem = f"{stem}_{suffix}"
+    return f"{stem}.{ext}"
+
+
+def reserve_output_suffix(output_dir, base_name, outputs):
+    """
+    Finds the smallest suffix (None for no suffix, then 1, 2, 3, ...) such
+    that none of the "<base_name>_<doc_type>[_<suffix>].<ext>" files for
+    (doc_type, ext) in `outputs` already exist in output_dir.
+
+    This lets a set of related exports produced in one run (e.g. a book PDF,
+    its cover image, and its data JSON) share one consistent suffix instead
+    of silently overwriting a previous run's files or drifting out of sync
+    with each other.
+    """
+    suffix = None
+    while True:
+        if not any(
+            os.path.exists(os.path.join(output_dir, output_filename(base_name, doc_type, ext, suffix)))
+            for doc_type, ext in outputs
+        ):
+            return suffix
+        suffix = 1 if suffix is None else suffix + 1
+
+
 def generate_single_puzzle(title, words, size, use_basic=False, verbose=False, max_attempts=1):
     """
     Generate one puzzle, retrying up to `max_attempts` times if some words

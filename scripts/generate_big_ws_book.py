@@ -18,7 +18,12 @@ import os
 import random
 
 from wordsearch import cover_image
-from wordsearch.book_builder import assemble_book_pdf, generate_single_puzzle
+from wordsearch.book_builder import (
+    assemble_book_pdf,
+    generate_single_puzzle,
+    output_filename,
+    reserve_output_suffix,
+)
 from wordsearch.html_export import generate_html_description
 
 # Safety cap on how many words a single puzzle may contain
@@ -179,6 +184,11 @@ if __name__ == "__main__":
         if args.name:
             puzzle_name = args.name
 
+        output_types = [("book", "pdf"), ("cover", "png")]
+        if args.html_description:
+            output_types.append(("description", "html"))
+        output_suffix = reserve_output_suffix(output_dir, puzzle_name, output_types)
+
         # get content descriptions from metadata if available
         with open(args.input, "r", encoding="utf-8") as f:
             puzzle_data = json.load(f)
@@ -207,6 +217,11 @@ if __name__ == "__main__":
         )
         if args.name:
             puzzle_name = args.name
+
+        output_types = [("book", "pdf"), ("cover", "png"), ("data", "json")]
+        if args.html_description:
+            output_types.append(("description", "html"))
+        output_suffix = reserve_output_suffix(output_dir, puzzle_name, output_types)
 
         base_puzzle_count = len(data["puzzles"])
         total_puzzle_count = base_puzzle_count * args.copies
@@ -262,20 +277,25 @@ if __name__ == "__main__":
         print(f"Successfully generated {len(puzzles)} puzzles")
 
         # Save JSON with puzzles and solutions
+        data_json_path = os.path.join(
+            output_dir, output_filename(puzzle_name, "data", "json", output_suffix)
+        )
         save_puzzle_data_to_json(
             puzzles, solutions,
-            os.path.join(output_dir, f"{puzzle_name}_data.json"),
+            data_json_path,
             puzzle_name,
             cover_color,
             content_descriptions
         )
-        print(f"JSON saved: {os.path.join(output_dir, f'{puzzle_name}_data.json')}")
+        print(f"JSON saved: {data_json_path}")
 
-    pdf_output_path = os.path.join(output_dir, f"{puzzle_name}_book.pdf")
+    pdf_output_path = os.path.join(
+        output_dir, output_filename(puzzle_name, "book", "pdf", output_suffix)
+    )
 
     # generate the cover image in the output folder only for the first puzzle
     cover_image_path = os.path.join(
-        output_dir, f"{puzzle_name}_cover_grid.png"
+        output_dir, output_filename(puzzle_name, "cover", "png", output_suffix)
     )
 
     cover_image.render_wordsearch_cover(
@@ -302,6 +322,8 @@ if __name__ == "__main__":
 
     # Generate HTML description if requested
     if args.html_description:
-        html_output_path = os.path.join(output_dir, f"{puzzle_name}-description.html")
+        html_output_path = os.path.join(
+            output_dir, output_filename(puzzle_name, "description", "html", output_suffix)
+        )
         description = content_descriptions if content_descriptions else "Word Search Book"
         generate_html_description(html_output_path, puzzle_name, description, categories_data, catchphrase=data.get("catchphrase", ""))
