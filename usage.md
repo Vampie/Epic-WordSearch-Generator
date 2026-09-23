@@ -130,7 +130,7 @@ For bulk-generating a themed book (e.g. a KDP-style puzzle book) where each
 theme should produce several different randomized puzzles.
 
 ```bash
-python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json output/ -n animals_book -c 4 --pdf -d
+python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json output/ -n animals_book -c 4 -d
 ```
 
 **Arguments:**
@@ -142,7 +142,7 @@ python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json outpu
 - `-c, --copies` — number of randomized variations per theme (default: 4)
 - `-t, --input-type` — `wordlist` (default, generates new puzzles from word
   lists) or `puzzles` (reuses previously generated puzzle data — see below)
-- `-d, --html-description` — also write a `<name>-description.html` blurb
+- `-d, --html-description` — also write a `<name>_description.html` blurb
   with the book's title and category preview
 - `-f, --force` — overwrite the final book/cover/data/description files
   and delete any previous `_1`/`_2`/... versions (all as one consistent set)
@@ -169,7 +169,7 @@ root can set a `color` (hex, used for the cover) and `catchphrase`:
 
 **Output** (all written to the output folder):
 
-- `<name>_book.pdf` — the full book (variations, e.g. "Jungle Animals 1",
+- `<name>_bigbook.pdf` — the full book (variations, e.g. "Jungle Animals 1",
   "Jungle Animals 2", ...)
 - `<name>_data.json` — the generated puzzles/solutions, so the same exact
   puzzles can be reused later (see `-t puzzles` below) without re-rolling

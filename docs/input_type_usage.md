@@ -53,7 +53,7 @@ python scripts/generate_big_ws_book.py \
 
 Output:
 - `releases/01/animals_book_data.json` (puzzle data)
-- `releases/01/animals_book_book.pdf` (the book)
+- `releases/01/animals_book_bigbook.pdf` (the book)
 - `releases/01/animals_book_cover.png` (cover image)
 
 ### Example 2: Regenerate the book from saved puzzle data
@@ -66,7 +66,7 @@ python scripts/generate_big_ws_book.py \
 ```
 
 Output:
-- `releases/01_v2/animals_book_v2_book.pdf` (same puzzles, new PDF)
+- `releases/01_v2/animals_book_v2_bigbook.pdf` (same puzzles, new PDF)
 - `releases/01_v2/animals_book_v2_cover.png` (cover image)
 
 Note: The `-c/--copies` parameter is ignored when using `--input-type puzzles` since the puzzles are already generated.

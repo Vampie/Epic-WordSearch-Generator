@@ -191,7 +191,7 @@ python -m scripts.generate_big_ws_book data/books/01_animals_20_lists.json outpu
 
 Sample files with 20 puzzles each in the folder [`data/books/`](data/books/).
   
-Output: The large book will be saved as `output/<name>_book.pdf`, plus a cover image and data JSON.
+Output: The large book will be saved as `output/<name>_bigbook.pdf`, plus a cover image and data JSON.
 
 ### Validation
 

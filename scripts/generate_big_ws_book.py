@@ -168,7 +168,7 @@ if __name__ == "__main__":
         if args.name:
             puzzle_name = args.name
 
-        output_types = [("book", "pdf"), ("cover", "png")]
+        output_types = [("bigbook", "pdf"), ("cover", "png")]
         if args.html_description:
             output_types.append(("description", "html"))
         output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
@@ -198,7 +198,7 @@ if __name__ == "__main__":
         if args.name:
             puzzle_name = args.name
 
-        output_types = [("book", "pdf"), ("cover", "png"), ("data", "json")]
+        output_types = [("bigbook", "pdf"), ("cover", "png"), ("data", "json")]
         if args.html_description:
             output_types.append(("description", "html"))
         output_suffix = resolve_output_suffix(output_dir, puzzle_name, output_types, force=args.force)
@@ -270,7 +270,7 @@ if __name__ == "__main__":
         print(f"JSON saved: {data_json_path}")
 
     pdf_output_path = os.path.join(
-        output_dir, output_filename(puzzle_name, "book", "pdf", output_suffix)
+        output_dir, output_filename(puzzle_name, "bigbook", "pdf", output_suffix)
     )
 
     # generate the cover image in the output folder only for the first puzzle
