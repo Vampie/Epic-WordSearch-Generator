@@ -211,3 +211,10 @@ __marimo__/
 
 # output folder
 out/
+output/
+
+# Visual Studio
+.vs/
+
+# backup files
+*.bak

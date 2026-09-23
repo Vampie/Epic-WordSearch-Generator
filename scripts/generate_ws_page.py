@@ -21,6 +21,11 @@ from wordsearch.book_builder import generate_single_puzzle
 from wordsearch import docx_export
 from wordsearch import pdf_render
 
+# Maximum number of words per puzzle, and how many times the grid may grow
+# to try to fit all of them before giving up
+MAX_WORDS = 40
+MAX_SIZE_GROWTH = 10
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -62,17 +67,34 @@ if __name__ == "__main__":
         size = 15
         puzzle = None
 
+        words = item["words"]
+        if len(words) > MAX_WORDS:
+            words = words[:MAX_WORDS]
+
         if {"title", "words"} <= item.keys():
             if "size" in item:
                 size = item["size"]
 
             puzzle = generate_single_puzzle(
                 item["title"],
-                item["words"],
+                words,
                 size,
                 use_basic=args.basic,
                 verbose=True,
             )
+            # Grow the grid if some words didn't fit, capped to avoid runaway sizes
+            growth = 0
+            while puzzle.failed_words and growth < MAX_SIZE_GROWTH:
+                size += 1
+                growth += 1
+                puzzle = generate_single_puzzle(
+                    item["title"],
+                    words,
+                    size,
+                    use_basic=args.basic,
+                    verbose=True,
+                )
+
 
         if puzzle is None:
             logging.error("Failed to generate puzzle for %s", item["title"])

@@ -6,7 +6,7 @@ and their solutions to PDF format using the ReportLab library.
 import os
 import math
 
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import A4, letter
 from reportlab.platypus import (
     SimpleDocTemplate,
     Paragraph,
@@ -66,14 +66,14 @@ def render_wordsearch_pdf(
     # cell_margin = 12  # 0.2 inch margin for table cells
 
     # --- Puzzle PDF ---
-    doc = SimpleDocTemplate(puzzle_output, pagesize=letter)
+    doc = SimpleDocTemplate(puzzle_output, pagesize=A4)
     elements = []
     # Title in uppercase and centered
     elements.append(Paragraph(title.upper(), styles["Title"]))
     elements.append(Spacer(1, 60))  # Increased space after title
 
     # Calculate grid size for spacer
-    page_width, page_height = letter
+    page_width, page_height = A4
     grid_size = len(grid)
     available_width = (page_width - 2 * page_margin) * 0.8
     available_height = (page_height - 2 * page_margin - 100) * 0.8
@@ -85,6 +85,7 @@ def render_wordsearch_pdf(
     # Prepare word list in multiple columns, uppercase
     num_columns = 4
     words_upper = [w.upper() for w in word_list]
+    words_upper.sort()
     rows = (len(words_upper) + num_columns - 1) // num_columns
     word_table_data = []
     for i in range(rows):
@@ -104,8 +105,8 @@ def render_wordsearch_pdf(
     word_table.setStyle(
         TableStyle(
             [
-                ("ALIGN", (0, 0), (-1, -1), "CENTER"),  # Center text in each cell
-                ("FONTSIZE", (0, 0), (-1, -1), 12),
+                ("ALIGN", (0, 0), (-1, -1), "LEFT"),  # Center text in each cell
+                ("FONTSIZE", (0, 0), (-1, -1), 10),
                 ("LEFTPADDING", (0, 0), (-1, -1), 6),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 6),
             ]
@@ -116,7 +117,7 @@ def render_wordsearch_pdf(
 
     # Custom grid drawing (fit to page, only outer border)
     def draw_grid(canvas, doc):  # pylint: disable=unused-argument
-        page_width, page_height = letter
+        page_width, page_height = A4
         grid_size = len(grid)
         available_width = (page_width - 2 * page_margin) * 0.8
         available_height = (page_height - 2 * page_margin) * 0.8
@@ -147,13 +148,16 @@ def render_wordsearch_pdf(
                 page_width / 2, 0.5 * 72, str(page_num)
             )  # 0.5 inch from bottom
 
+        canvas.drawString(0.5 * 72, 0.5 * 72, "Board Size: "+str(grid_size)+" | Words: "+str(len(words_upper)))
+        
+
     # --- Solution Page/PDF ---
     if highlights:
         elements_sol = []
 
         # Custom drawing for solution grid with highlights
         def draw_solution_grid(canvas, doc):  # pylint: disable=unused-argument
-            page_width, page_height = letter
+            page_width, page_height = A4
             page_margin = 36
             grid_size = len(grid)
             # Calculate available space and cell size
@@ -274,7 +278,7 @@ def render_wordsearch_pdf(
             solution_dir = os.path.dirname(solution_output)
             if solution_dir:
                 os.makedirs(solution_dir, exist_ok=True)
-            doc_sol = SimpleDocTemplate(solution_output, pagesize=letter)
+            doc_sol = SimpleDocTemplate(solution_output, pagesize=A4)
             elements_sol.append(
                 Paragraph(f"{title.upper()} - Solution", small_title_style)
             )

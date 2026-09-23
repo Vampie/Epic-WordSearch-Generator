@@ -21,6 +21,36 @@ from wordsearch import cover_image
 from wordsearch.book_builder import assemble_book_pdf, generate_single_puzzle
 from wordsearch.html_export import generate_html_description
 
+# Safety cap on how many words a single puzzle may contain
+MAX_WORDS = 40
+
+
+def find_json_in_data(filename, base_dir="data"):
+    """
+    Search for a JSON file named `filename` inside `base_dir` and its subfolders.
+
+    - `filename` may be given with or without the `.json` extension.
+    - Search is case-insensitive and returns the first exact filename match found.
+    - Returns an absolute path if found, otherwise returns None.
+    """
+    if not filename:
+        return None
+
+    name = filename
+    if name.lower().endswith(".json"):
+        name = name[:-5]
+    target_lower = (name + ".json").lower()
+
+    if not os.path.isdir(base_dir):
+        return None
+
+    for root, _, files in os.walk(base_dir):
+        for f in files:
+            if f.lower() == target_lower:
+                return os.path.abspath(os.path.join(root, f))
+
+    return None
+
 
 def save_puzzle_data_to_json(
     puzzles,
@@ -122,6 +152,13 @@ if __name__ == "__main__":
         action="store_true",
         help="generate an HTML file with the title and description of the book",
     )
+    parser.add_argument(
+        "-w",
+        "--words",
+        type=int,
+        help="default number of words per puzzle when not set per-puzzle via 'count' (default: 20)",
+        default=20,
+    )
 
     args = parser.parse_args()
 
@@ -152,11 +189,19 @@ if __name__ == "__main__":
 
     else:
         # Generate new puzzles from word lists (original behavior)
-        with open(args.input, "r", encoding="utf-8") as f:
+        # If the given input isn't an existing path, try to locate a JSON
+        # file with that name anywhere under data/.
+        input_path = args.input
+        if not os.path.isfile(input_path):
+            found = find_json_in_data(input_path, base_dir="data")
+            if found:
+                input_path = found
+
+        with open(input_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         puzzle_name = (
-            data.get("title", os.path.splitext(os.path.basename(args.input))[0])
+            data.get("title", os.path.splitext(os.path.basename(input_path))[0])
             .replace(" ", "_")
             .lower()
         )
@@ -177,7 +222,8 @@ if __name__ == "__main__":
         # each theme
         for item in data["puzzles"][:20]:
             size = item.get("size", 15)
-            count = item.get("count", 20)
+            count = item.get("count", args.words)
+            count = max(1, min(count, len(item["words"]), MAX_WORDS))
             base_title = item["title"]
 
             # Append the puzzle "title" to descriptions, only first 6 titles
