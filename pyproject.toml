@@ -45,9 +45,6 @@ Homepage = "https://github.com/runarion/fantastic-train-wordsearch-generator"
 Repository = "https://github.com/runarion/fantastic-train-wordsearch-generator"
 Issues = "https://github.com/runarion/fantastic-train-wordsearch-generator/issues"
 
-[project.scripts]
-wordsearch-generate = "scripts.generate_wordsearch:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]
 

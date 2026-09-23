@@ -17,7 +17,7 @@ sys.path.insert(
 )
 
 # pylint: disable=wrong-import-position,import-error
-from wordsearch import generate
+from wordsearch.book_builder import generate_single_puzzle
 from wordsearch import docx_export
 from wordsearch import pdf_render
 
@@ -66,11 +66,11 @@ if __name__ == "__main__":
             if "size" in item:
                 size = item["size"]
 
-            puzzle = generate.generate_puzzle(
+            puzzle = generate_single_puzzle(
                 item["title"],
                 item["words"],
                 size,
-                args.basic,
+                use_basic=args.basic,
                 verbose=True,
             )
 
