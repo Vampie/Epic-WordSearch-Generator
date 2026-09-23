@@ -71,7 +71,8 @@ if __name__ == "__main__":
     for item in data["puzzles"]:
         size = item.get("size", 15)
         puzzle = generate_single_puzzle(
-            item["title"], item["words"], size, use_basic=False, verbose=False
+            item["title"], item["words"], size, use_basic=False, verbose=False,
+            max_attempts=8,
         )
 
         if puzzle is None:

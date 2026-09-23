@@ -107,6 +107,7 @@ if __name__ == "__main__":
                 size,
                 use_basic=args.basic,
                 verbose=True,
+                max_attempts=8,
             )
             # Grow the grid if some words didn't fit, capped to avoid runaway sizes
             growth = 0
@@ -119,6 +120,7 @@ if __name__ == "__main__":
                     size,
                     use_basic=args.basic,
                     verbose=True,
+                    max_attempts=8,
                 )
 
         if puzzle is None:
