@@ -52,6 +52,8 @@ def render_wordsearch_pdf(
     highlight_style=HighlightStyle.RECT,
     page_num=None,
     grey_highlights=False,
+    nav_index_target=None,
+    nav_solution_target=None,
 ):
     """
     Render a wordsearch puzzle and its solution to a PDF file.
@@ -70,6 +72,17 @@ def render_wordsearch_pdf(
         page_num (int): Optional. Page number to display at the bottom of the page.
         grey_highlights (bool): If True, use grey color for highlights instead of orange.
             Default is False (orange).
+        nav_index_target (int): Optional. If set, draws a "← Index" label at
+            the top-left of the puzzle page and reports its clickable rect
+            in the returned dict (key "index") so the caller can add a real
+            PDF link to that target page once the book is merged.
+        nav_solution_target (int): Optional. Same as above but draws
+            "Solution →" at the top-right, under key "solution".
+
+    Returns:
+        dict mapping "index"/"solution" (whichever targets were given) to
+        (rect, target_page) tuples, rect = (x0, y0, x1, y1) in PDF points on
+        this page. Empty dict when neither target was given.
     """
 
     # Ensure the output directory exists
@@ -151,6 +164,8 @@ def render_wordsearch_pdf(
 
     elements.append(word_table)
 
+    nav_rects = {}
+
     # Custom grid drawing (fit to page, only outer border)
     def draw_grid(canvas, doc):  # pylint: disable=unused-argument
         page_width, page_height = A4
@@ -185,7 +200,39 @@ def render_wordsearch_pdf(
             )  # 0.5 inch from bottom
 
         canvas.drawString(0.5 * 72, 0.5 * 72, "Board Size: "+str(grid_size)+" | Words: "+str(len(words_upper)))
-        
+
+        # --- Navigation links (index / solution) ---
+        # Drawn in the top margin, above where the title Paragraph starts
+        # (SimpleDocTemplate's default topMargin, ~72pt, isn't touched -
+        # see the comment on `doc` above). Only the visual label + its rect
+        # are done here; the actual clickable PDF link annotation is added
+        # afterwards by book_builder.assemble_book_pdf, once the final
+        # merged document's page numbers are known.
+        nav_font_size = 10
+        nav_y = page_height - 40
+        if nav_index_target is not None:
+            label = "← Index"
+            canvas.setFont("Helvetica", nav_font_size)
+            canvas.setFillColorRGB(0, 0, 0.8)
+            canvas.drawString(page_margin, nav_y, label)
+            canvas.setFillColorRGB(0, 0, 0)
+            label_width = canvas.stringWidth(label, "Helvetica", nav_font_size)
+            nav_rects["index"] = (
+                (page_margin - 4, nav_y - 4, page_margin + label_width + 4, nav_y + nav_font_size + 6),
+                nav_index_target,
+            )
+        if nav_solution_target is not None:
+            label = "Solution →"
+            canvas.setFont("Helvetica", nav_font_size)
+            canvas.setFillColorRGB(0, 0, 0.8)
+            label_width = canvas.stringWidth(label, "Helvetica", nav_font_size)
+            label_x = page_width - page_margin - label_width
+            canvas.drawString(label_x, nav_y, label)
+            canvas.setFillColorRGB(0, 0, 0)
+            nav_rects["solution"] = (
+                (label_x - 4, nav_y - 4, page_width - page_margin + 4, nav_y + nav_font_size + 6),
+                nav_solution_target,
+            )
 
     # --- Solution Page/PDF ---
     if highlights:
@@ -327,6 +374,8 @@ def render_wordsearch_pdf(
     else:
         # No solution, just build the puzzle
         doc.build(elements, onFirstPage=draw_grid)
+
+    return nav_rects
 
 
 def draw_solution_grid_for_book(

@@ -10,11 +10,17 @@ command-line wrappers around it.
 import os
 import tempfile
 
-from PyPDF2 import PdfMerger
+from PyPDF2 import PdfMerger, PdfReader, PdfWriter
+from PyPDF2.generic import AnnotationBuilder, RectangleObject
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
-from intro import create_intro_pages, create_solution_intro_pages
+from intro import (
+    create_index_page,
+    create_intro_pages,
+    create_solution_intro_pages,
+    INDEX_ENTRIES_PER_PAGE,
+)
 from wordsearch import generate
 from wordsearch import pdf_render
 
@@ -180,6 +186,7 @@ def create_solution_page(
     scale=1.0,
     left_margin_offset=0,
     vertical_offset=0,
+    target_pages=None,
 ):
     """
     Draws up to 4 solution grids on a single page and saves as PDF.
@@ -187,6 +194,12 @@ def create_solution_page(
     `scale`, `left_margin_offset` and `vertical_offset` allow callers to
     tune grid spacing/positioning (the "big book" layout uses a slightly
     smaller scale and extra offsets compared to the regular book layout).
+
+    `target_pages`, if given, is a list of the same length as
+    `solutions_chunk`: the page each solution's own puzzle lives on. Returns
+    a list of (rect, target_page) - rect = (x0, y0, x1, y1) in PDF points -
+    one per solution that had a target, for the caller to turn into a real
+    clickable link once the book is merged (see assemble_book_pdf).
     """
     page_width, page_height = letter
     margin = 36
@@ -203,6 +216,7 @@ def create_solution_page(
     ]
 
     c = canvas.Canvas(output_pdf, pagesize=letter)
+    link_rects = []
     for position, (sol_title, sol_grid, sol_highlights) in enumerate(solutions_chunk):
         grid_size = len(sol_grid)
         cell_size = grid_area / grid_size
@@ -213,11 +227,44 @@ def create_solution_page(
             grey_highlights=grey_highlights,
         )
 
+        if target_pages is not None and position < len(target_pages):
+            grid_top = pos_y + grid_size * cell_size
+            rect = (pos_x, pos_y, pos_x + grid_size * cell_size, grid_top + 26)
+            link_rects.append((rect, target_pages[position]))
+
     if page_num is not None:
         draw_page_number(c, page_num)
 
     c.showPage()
     c.save()
+    return link_rects
+
+
+def _add_link_annotations(pdf_path, link_annotations):
+    """
+    Re-opens `pdf_path` and adds a clickable link for each
+    (source_page, rect, target_page) in `link_annotations` (all 1-indexed
+    page numbers; rect = (x0, y0, x1, y1) in that page's own PDF points),
+    then overwrites the file. Split out from assemble_book_pdf because links
+    can only be added once every page has a final, permanent page number -
+    i.e. after the whole book has been merged into one document.
+    """
+    reader = PdfReader(pdf_path)
+    writer = PdfWriter()
+    writer.append(reader)
+
+    num_pages = len(writer.pages)
+    for source_page, rect, target_page in link_annotations:
+        if not 1 <= source_page <= num_pages or not 1 <= target_page <= num_pages:
+            continue
+        annotation = AnnotationBuilder.link(
+            rect=RectangleObject(rect),
+            target_page_index=target_page - 1,
+        )
+        writer.add_annotation(page_number=source_page - 1, annotation=annotation)
+
+    with open(pdf_path, "wb") as f:
+        writer.write(f)
 
 
 def assemble_book_pdf(
@@ -231,62 +278,108 @@ def assemble_book_pdf(
     solution_scale=1.0,
     solution_left_margin_offset=0,
     solution_vertical_offset=0,
+    add_navigation=True,
 ):
     """
     Assembles intro pages, one puzzle per page, and grouped solution pages
     into a single merged PDF book at `output_pdf`.
+
+    When `add_navigation` is True (default), a 2-column index (one or more
+    pages, right after the title page) is added, and clickable links are
+    wired up: each index entry jumps to its puzzle, each puzzle page links
+    back to the index (top-left) and forward to its solution (top-right),
+    and each solution grid links back to its puzzle.
+
+    This book's layout is fully deterministic (title, then index, then one
+    page per puzzle, then a solutions title page, then solutions 4-per-page
+    in the same order as `puzzles`), so every page number is computed up
+    front before anything is drawn - that's what makes the cross-references
+    possible without a second rendering pass.
     """
+    num_puzzles = len(puzzles)
+
+    num_index_pages = 0
+    if add_navigation and num_puzzles:
+        num_index_pages = -(-num_puzzles // INDEX_ENTRIES_PER_PAGE)  # ceil div
+
+    first_puzzle_page = 2 + num_index_pages
+    puzzle_pages = [first_puzzle_page + i for i in range(num_puzzles)]
+    solutions_title_page = first_puzzle_page + num_puzzles
+    first_solution_page = solutions_title_page + 1
+    solution_pages = [first_solution_page + i // 4 for i in range(num_puzzles)]
+
+    index_target_page = 2 if num_index_pages else None
+
     with tempfile.TemporaryDirectory() as tmpdir:
         merger = PdfMerger()
+        link_annotations = []  # (source_page, rect, target_page), 1-indexed
 
-        # --- Create intro pages ---
+        # --- Title page ---
         create_intro_pages(
-            merger, tmpdir, puzzle_name, puzzle_count if puzzle_count is not None else len(puzzles),
+            merger, tmpdir, puzzle_name, puzzle_count if puzzle_count is not None else num_puzzles,
             about_content=about_content,
         )
 
-        # Track current page number (intro is now just the title page - the
-        # blank/how-to-solve/about pages are disabled, see intro/pages.py)
-        current_page = 2
+        # --- Index pages ---
+        if num_index_pages:
+            index_entries = [(puzzles[i][0], puzzle_pages[i]) for i in range(num_puzzles)]
+            for page_i in range(num_index_pages):
+                chunk = index_entries[page_i * INDEX_ENTRIES_PER_PAGE:(page_i + 1) * INDEX_ENTRIES_PER_PAGE]
+                index_page_num = 2 + page_i
+                index_pdf = os.path.join(tmpdir, f"index_{page_i}.pdf")
+                rects = create_index_page(index_pdf, chunk, page_label=index_page_num)
+                merger.append(index_pdf)
+                for rect, target in rects:
+                    link_annotations.append((index_page_num, rect, target))
 
         # --- Puzzles: one per page ---
         for idx, (title, grid, words) in enumerate(puzzles):
             puzzle_pdf = os.path.join(tmpdir, f"puzzle_{idx}.pdf")
-            pdf_render.render_wordsearch_pdf(
+            page_number = puzzle_pages[idx]
+            nav_rects = pdf_render.render_wordsearch_pdf(
                 puzzle_output=puzzle_pdf,
                 title=title,
                 grid=grid,
                 word_list=words,
                 highlights=None,
                 solution_output=None,
-                page_num=current_page,
+                page_num=page_number,
                 grey_highlights=grey_highlights,
+                nav_index_target=index_target_page,
+                nav_solution_target=solution_pages[idx] if add_navigation else None,
             )
             merger.append(puzzle_pdf)
-            current_page += 1
+            for rect, target in nav_rects.values():
+                link_annotations.append((page_number, rect, target))
 
         # --- Solutions title page ---
         solutions_title_pdf = os.path.join(tmpdir, "solutions_title.pdf")
         create_solution_intro_pages(solutions_title_pdf, "Solutions")
         merger.append(solutions_title_pdf)
-        current_page += 1
 
         # --- Solutions: 4 per page ---
         for i in range(0, len(solutions), 4):
             chunk = solutions[i:i + 4]
+            chunk_targets = puzzle_pages[i:i + 4] if add_navigation else None
             solution_pdf = os.path.join(tmpdir, f"solution_{i // 4}.pdf")
-            create_solution_page(
+            page_number = solution_pages[i]
+            rects = create_solution_page(
                 chunk,
                 solution_pdf,
-                page_num=current_page,
+                page_num=page_number,
                 grey_highlights=grey_highlights,
                 scale=solution_scale,
                 left_margin_offset=solution_left_margin_offset,
                 vertical_offset=solution_vertical_offset,
+                target_pages=chunk_targets,
             )
             merger.append(solution_pdf)
-            current_page += 1
+            for rect, target in rects:
+                link_annotations.append((page_number, rect, target))
 
         # Write the merged PDF
         merger.write(output_pdf)
         merger.close()
+
+    if link_annotations:
+        _add_link_annotations(output_pdf, link_annotations)

@@ -7,6 +7,12 @@ import os
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
+from reportlab.pdfbase.pdfmetrics import stringWidth
+
+# How many index entries fit on one 2-column index page (see
+# create_index_page): must stay in sync with that function's own layout math.
+INDEX_ROWS_PER_COLUMN = 40
+INDEX_ENTRIES_PER_PAGE = INDEX_ROWS_PER_COLUMN * 2
 
 
 def create_blank_page(output_pdf):
@@ -156,6 +162,72 @@ def create_intro_pages(merger, tmpdir, puzzle_name, puzzle_count, about_content=
     intro_pdf = os.path.join(tmpdir, "intro_complete.pdf")
     create_title_page(intro_pdf, puzzle_name, puzzle_count, about_content=about_content)
     merger.append(intro_pdf)
+
+
+def create_index_page(output_pdf, entries, page_label=None):
+    """
+    Draws one 2-column index page.
+
+    Args:
+        output_pdf (str): file to save the PDF to.
+        entries (list): list of (title, target_page) tuples to list on this
+            page (already sliced to fit - see INDEX_ENTRIES_PER_PAGE).
+            Filled column-major: column 1 top-to-bottom, then column 2.
+        page_label: optional page number to print at the bottom.
+
+    Returns:
+        list of (rect, target_page) where rect = (x0, y0, x1, y1) in PDF
+        points. The caller (book_builder.assemble_book_pdf) turns these into
+        real clickable links once the whole book has been merged into one
+        document and every page's final index is known - this function only
+        draws pixels and reports back where it put each entry.
+    """
+    page_width, page_height = letter
+    margin = 50
+    gap = 30
+    top = page_height - 100
+    bottom = 50
+    row_height = (top - bottom) / INDEX_ROWS_PER_COLUMN
+    col_width = (page_width - 2 * margin - gap) / 2
+    font_size = 11
+
+    c = canvas.Canvas(output_pdf, pagesize=letter)
+
+    c.setFont("Helvetica-Bold", 28)
+    c.drawCentredString(page_width / 2, page_height - 70, "INDEX")
+
+    rects = []
+    for i, (title, target_page) in enumerate(entries):
+        col = i // INDEX_ROWS_PER_COLUMN
+        row = i % INDEX_ROWS_PER_COLUMN
+        col_x = margin + col * (col_width + gap)
+        row_top = top - row * row_height
+        row_bottom = row_top - row_height
+        text_y = row_bottom + row_height * 0.3
+
+        page_str = str(target_page)
+        page_str_width = stringWidth(page_str, "Helvetica", font_size)
+        title_max_width = col_width - page_str_width - 15
+
+        c.setFont("Helvetica", font_size)
+        display_title = title
+        while stringWidth(display_title, "Helvetica", font_size) > title_max_width and len(display_title) > 1:
+            display_title = display_title[:-1]
+        if display_title != title:
+            display_title = display_title[:-1] + "…"
+
+        c.drawString(col_x, text_y, display_title)
+        c.drawRightString(col_x + col_width, text_y, page_str)
+
+        rects.append(((col_x, row_bottom, col_x + col_width, row_top), target_page))
+
+    if page_label is not None:
+        c.setFont("Helvetica", 10)
+        c.drawCentredString(page_width / 2, 0.5 * inch, str(page_label))
+
+    c.showPage()
+    c.save()
+    return rects
 
 
 def create_solution_intro_pages(output_pdf, title_text):
